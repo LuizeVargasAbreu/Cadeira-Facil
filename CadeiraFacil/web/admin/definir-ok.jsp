@@ -29,21 +29,17 @@
 <div id="myModal" class="modal" style="display: block">
     <!-- Modal content -->
     <div class="modal-content">
+        <a href="listAdmin.jsp" class="a">
+            <span class="close" onclick="fecharModal()">×</span>
+        </a>
         <div class="infosModal">
             <div class="centro">
-                <b>Deseja excluir o usuário <br><br> NOME DO USUÁRIO?</b>
-            </div><br><br>
-        </div>
-        <div class="btn-groupA centro">
-            <a href="excluirUsuario.jsp" class="a">
-                <button class="btnAcoes"  style="padding: 25px 50px">Sim</button>
-            </a>
-            <a href="listAdmin.jsp" class="a">
-                <button class="btnAcoes"  style="padding: 25px 50px; margin-left: 25px">Não</button>
-            </a>
+                <b><%=nome%> <br><br> <%=msg%></b>
+            </div>
         </div>
     </div>
 </div>
+            
 <div class="btn-groupA" style="float: right; padding-top: 5%">
     <a href="listAdmin.jsp" class="a">
         <button class="btnCabecalho" style="padding: 25px 50px">Voltar</button>
@@ -65,9 +61,9 @@
                                 <br>
                                 <select required name="papelUsuario" style="width: 100%;">
                                     <option value="selecionar" selected></option>
-                                    <option value="">Lisane Brisolara de Brisolara</option>
-                                    <option value="">Larissa Astrogildo de Freitas</option>
-                                    <option value="">Nome de outros professores</option>
+                                    <option value="Lisane Brisolara de Brisolara">Lisane Brisolara de Brisolara</option>
+                                    <option value="Larissa Astrogildo de Freitas">Larissa Astrogildo de Freitas</option>
+                                    <option value="Nome de outros professores">Nome de outros professores</option>
                                 </select>
                             </div>
                             <div class="mdl-cell--12-col">

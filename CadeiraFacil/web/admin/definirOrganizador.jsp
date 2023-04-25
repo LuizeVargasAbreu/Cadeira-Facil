@@ -18,11 +18,11 @@
                             <div class="mdl-cell--12-col">
                                 <label for="txtNome">Nome:</label>
                                 <br>
-                                <select required name="papelUsuario" style="width: 100%;">
+                                <select required name="txtNome" style="width: 100%;">
                                     <option value="selecionar" selected></option>
-                                    <option value="">Lisane Brisolara de Brisolara</option>
-                                    <option value="">Larissa Astrogildo de Freitas</option>
-                                    <option value="">Nome de outros professores</option>
+                                    <option value="Lisane Brisolara de Brisolara">Lisane Brisolara de Brisolara</option>
+                                    <option value="Larissa Astrogildo de Freitas">Larissa Astrogildo de Freitas</option>
+                                    <option value="Nome de outros professores">Nome de outros professores</option>
                                 </select>
                             </div>
                             <div class="mdl-cell--12-col">
