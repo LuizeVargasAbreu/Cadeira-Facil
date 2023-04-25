@@ -21,7 +21,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-        <title>Cadeira Fácil</title>
+        <title>Cadeira FÃ¡cil</title>
 
         <!-- Add to homescreen for Chrome on Android -->
         <meta name="mobile-web-app-capable" content="yes">
@@ -68,7 +68,7 @@
             <header class="mdl-layout__header mdl-layout__header--scroll headerAdmin">
                 <div class="mdl-layout__header-row">
                     <div class="btn-groupA"style="padding-left: 99%;">
-                        <a href="index.html?sair=ok" class="a">
+                        <a href="../index.html?sair=ok" class="a">
                             <button class="btnAcoes" style="padding: 10px 10px">
                                 <div id="logout" class="icon material-icons">logout</div>
                                 <div class="mdl-tooltip mdl-tooltip--large" for="logout">
@@ -79,7 +79,7 @@
                     </div>
                 </div>
                 <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-                    <h3>Área Administrativa</h3>
+                    <h3>Ãrea Administrativa</h3>
                 </div>
                 <div class="mdl-layout--large-screen-only mdl-layout__header-row">
                     <div class="mdl-tabs">
