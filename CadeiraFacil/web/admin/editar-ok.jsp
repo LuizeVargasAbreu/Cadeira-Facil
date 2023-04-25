@@ -19,12 +19,12 @@
         
        try
         {
-            msg = "Usuário cadastrado com sucesso!";
+            msg = "Informações do usuário alteradas com sucesso!";
             
         }
         catch(Exception ex)
         {
-            msg = "Erro ao cadastrar usuário.";
+            msg = "Erro ao alterar informações do usuário.";
         }
         
     }
@@ -67,7 +67,7 @@
         <section class="mdl-grid mdl-grid--no-spacing">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
                 <div class="mdl-card__supporting-text">
-                    <h3>Cadastrar usuário</h3>
+                    <h3>Editar usuário</h3>
                     <div class="divCadastro">
                         <form action="cadastrar-ok.jsp" method="post">
                             <div class="mdl-cell--12-col">
@@ -85,7 +85,7 @@
 
                                 <label for="papelUsuario">Papel:</label>
                                 <br>
-                                <select name="papelUsuario" selected value="<%=papel%>">  <!-- ARRUMAR PARA QUE FIQUE SELECIONADO O PAPEL ATUAL -->
+                                <select name="papelUsuario" selected value="<%=papel%>">
                                     <option value="selecionar"></option>
                                     <option value="professor">Professor</option>
                                     <option value="organizador">Organizador</option>
