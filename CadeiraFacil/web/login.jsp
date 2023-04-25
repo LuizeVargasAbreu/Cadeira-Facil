@@ -15,6 +15,7 @@
         {
            //Crio a Sessão do usuário Admin
            session.setAttribute("usuarioAdmin", login);
+           session.setAttribute("usuarioPapeis", new Boolean[] { true, true, true, true });
            //redirecionar para a página onde o usuário irá escolher o papel
            response.sendRedirect("escolherSessao.jsp");
         }
@@ -24,6 +25,7 @@
             if (rs.next() && senha.equals(rs.getString("Senha"))) {
                 //Crio a Sessão do usuário Admin
                 session.setAttribute("usuarioAdmin", login);
+                session.setAttribute("usuarioPapeis", rs.getArray("Papeis").getArray());
                 //redirecionar para a página onde o usuário irá escolher o papel
                 response.sendRedirect("escolherSessao.jsp");
             }
