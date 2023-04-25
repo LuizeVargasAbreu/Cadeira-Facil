@@ -20,17 +20,17 @@
                                 <input type="text" required name="txtNome">
 
                                 <label for="txtMatricula">Matrícula/SIAPE:</label>
-                                <input type="text" name="txtMatricula">
+                                <input type="text" required name="txtMatricula">
 
                                 <label for="txtEmail">E-mail:</label>
-                                <input type="text" name="txtEmail">
+                                <input type="email" required name="txtEmail">
 
                                 <label for="txtSenha">Senha:</label>
-                                <input type="text" name="txtSenha"> <!-- Como a senha é o admin que está cadastrando, precisa ser tipo "password" ou pode ser tipo "text"? -->
+                                <input type="text" required name="txtSenha"> <!-- Como a senha é o admin que está cadastrando, precisa ser tipo "password" ou pode ser tipo "text"? -->
 
                                 <label for="papelUsuario">Papel:</label>
                                 <br>
-                                <select name="papelUsuario">
+                                <select required name="papelUsuario">
                                     <option value="selecionar" selected></option>
                                     <option value="professor">Professor</option>
                                     <option value="organizador">Organizador</option>
@@ -46,4 +46,4 @@
                 </div>
             </div>
         </section>
-        <%@include file="../rodapeInicial.jsp"%>
+<%@include file="../rodapeInicial.jsp"%>
