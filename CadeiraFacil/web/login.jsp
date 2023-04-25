@@ -1,4 +1,5 @@
 <%@include file="cabecalhoInicial.jsp"%>
+<%@include file="DBConn.jsp"%>
 </div>
 </div>
 </header>
@@ -17,12 +18,21 @@
            //redirecionar para a página onde o usuário irá escolher o papel
            response.sendRedirect("escolherSessao.jsp");
         }
-        else
-        {
-           msg = "E-mail ou senha errada! Tente novamente.";
+        else {
+            ResultSet rs = makeQuery(String.format("SELECT * FROM Usuario WHERE Email='%s'", login));
+
+            if (rs.next() && senha.equals(rs.getString("Senha"))) {
+                //Crio a Sessão do usuário Admin
+                session.setAttribute("usuarioAdmin", login);
+                //redirecionar para a página onde o usuário irá escolher o papel
+                response.sendRedirect("escolherSessao.jsp");
+            }
+            else {
+                msg = "E-mail ou senha errada! Tente novamente.";
+            }
         }
-    
     }
+    
     if(request.getParameter("sair") != null)
     {
         session.setAttribute("usuarioAdmin", null);
