@@ -1,7 +1,7 @@
 <%@ page import="java.sql.*" %>
 <%!
     public ResultSet makeQuery(String sql) {
-        String url = "jdbc:postgresql://localhost:5433/DS";
+        String url = "jdbc:postgresql://localhost:5432/DS";
         String username = "postgres";
         String password = "admin";
 
