@@ -1,4 +1,16 @@
+<%
+    String sessionLogin = (String) session.getAttribute("usuarioAdmin");
+    if (sessionLogin == null)
+        throw new ServletException("Invalid Login");
+        
+    Boolean[] sessionPapeis = (Boolean[]) session.getAttribute("usuarioPapeis");
+    if (!sessionPapeis[0])
+        throw new ServletException("Admin Only");
+%>
+
 <%@include file="cabecalhoAdmin.jsp"%>
+<%@include file="../DBConn.jsp"%>
+
 <%
     String msg="";
     
@@ -20,7 +32,18 @@
        try
         {
             msg = "Usuário cadastrado com sucesso!";
+            String papelStr = "";
+        
+            if (papel.equals("administrador"))
+                papelStr = "{true,false,false,false}";
+            else if (papel.equals("professor"))
+                papelStr = "{false,true,false,false}";
+            else if (papel.equals("organizador"))
+                papelStr = "{false,false,true,false}";
+            else
+                papelStr = "{false,false,false,true}";
             
+            makeQuery(String.format("INSERT INTO Usuario VALUES ('%s','%s','%s','%s','%s', %d)", nome, matricula, email, senha, papelStr, 0));
         }
         catch(Exception ex)
         {
