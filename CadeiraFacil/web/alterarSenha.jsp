@@ -1,4 +1,12 @@
+<%
+    String sessionLogin = (String) session.getAttribute("usuarioAdmin");
+    if (sessionLogin == null)
+        throw new ServletException("Invalid Login");
+%>
+
 <%@include file="cabecalhoInicial.jsp"%>
+<%@include file="DBConn.jsp"%>
+
 <div class="btn-group3" style="float: right; padding-top: 5%">
     <a href="escolherSessao.jsp" class="a">
         <button class="btnCabecalho" style="padding: 25px 50px">Voltar</button>
@@ -13,11 +21,16 @@
             request.getParameter("txtSenhaNova")!= null && 
             request.getParameter("txtConfirmarSenha")!= null)
     {
+        String sessionSenha = (String) session.getAttribute("usuarioSenha");
+        
         String senhaAntiga = request.getParameter("txtSenhaAntiga");
         String senhaNova = request.getParameter("txtSenhaNova");
         String confirmarSenha = request.getParameter("txtConfirmarSenha");
         
-        if(senhaAntiga.equals(senhaNova))   //verificar se a senha antiga é a mesma que está cadastrada
+        if (!senhaAntiga.equals(sessionSenha)) {
+            msg = "Senha incorreta!";
+        }
+        else if(senhaAntiga.equals(senhaNova))
         {
             msg = "A senha nova é parecida com a senha antiga.<br>Por favor, tente novamente.";
         }
@@ -26,6 +39,9 @@
            if(senhaNova.equals(confirmarSenha))
             {
                 msg = "Senha alterado com sucesso!";
+                session.setAttribute("usuarioSenha", senhaNova);
+                
+                makeQuery(String.format("UPDATE Usuario SET Senha='%s' WHERE Email='%s'", senhaNova, sessionLogin));
                 response.sendRedirect("escolherSessao.jsp");
             }
            else

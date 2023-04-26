@@ -49,7 +49,7 @@
                                     
                                     for (int i = 0, count = 0; i < 4; ++i) {
                                         if (papeis[i]) {
-                                            if (count > 0)
+                                            if (count++ > 0)
                                                 papeisStr += ", ";
                                             
                                             if (i == 0)
