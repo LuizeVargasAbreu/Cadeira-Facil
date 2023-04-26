@@ -43,7 +43,7 @@
             else
                 papelStr = "{false,false,false,true}";
             
-            makeQuery(String.format("INSERT INTO Usuario VALUES ('%s','%s','%s','%s','%s', %d)", nome, matricula, email, senha, papelStr, 0));
+            makeQuery(String.format("INSERT INTO Usuario VALUES ('%s','%s','%s','%s','%s', %d)", matricula, nome, email, senha, papelStr, 0));
         }
         catch(Exception ex)
         {
