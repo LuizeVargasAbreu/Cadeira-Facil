@@ -1,4 +1,16 @@
+<%
+    String sessionLogin = (String) session.getAttribute("usuarioAdmin");
+    if (sessionLogin == null)
+        throw new ServletException("Invalid Login");
+        
+    Boolean[] sessionPapeis = (Boolean[]) session.getAttribute("usuarioPapeis");
+    if (!sessionPapeis[0])
+        throw new ServletException("Admin Only");
+%>
+
 <%@include file="cabecalhoAdmin.jsp"%>
+<%@include file="../DBConn.jsp"%>
+
 <div class="btn-groupA" style="float: right; padding-top: 5%">
     <a href="definirOrganizador.jsp" class="a">
         <button class="btnCabecalho" style="padding: 16px 5px">Definir professor <br> como organizador</button>
@@ -28,62 +40,38 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="trHover">
-                                <td>Lisane Brisolara de Brisolara</td>
-                                <td>Professor</td>
-                                <td style="background-color: white">
-                                    <div class="btn-groupA">
-                                        <a href="editarUsuario.jsp" class="a">
-                                            <button class="btnAcoes"  style="padding: 10px 15px">Editar</button>
-                                        </a>
-                                        <a href="excluirUsuario.jsp" class="a">
-                                            <button class="btnAcoes"  style="padding: 10px 12px">Excluir</button>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="trHover">
-                                <td>Larissa Astrogildo de Freitas</td>
-                                <td>Professor, Organizador</td>
-                                <td style="background-color: white">
-                                    <div class="btn-groupA">
-                                        <a href="editarUsuario.jsp" class="a">
-                                            <button class="btnAcoes"  style="padding: 10px 15px">Editar</button>
-                                        </a>
-                                        <a href="excluirUsuario.jsp" class="a">
-                                            <button class="btnAcoes"  style="padding: 10px 12px">Excluir</button>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="trHover">
-                                <td>Luize Vargas Abreu</td>
-                                <td>Aluno</td>
-                                <td style="background-color: white">
-                                    <div class="btn-groupA">
-                                        <a href="editarUsuario.jsp" class="a">
-                                            <button class="btnAcoes"  style="padding: 10px 15px">Editar</button>
-                                        </a>
-                                        <a href="excluirUsuario.jsp" class="a">
-                                            <button class="btnAcoes"  style="padding: 10px 12px">Excluir</button>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="trHover">
-                                <td>Thalia Djune Costa Longaray</td>
-                                <td>Aluno</td>
-                                <td style="background-color: white">
-                                    <div class="btn-groupA">
-                                        <a href="editarUsuario.jsp" class="a">
-                                            <button class="btnAcoes"  style="padding: 10px 15px">Editar</button>
-                                        </a>
-                                        <a href="excluirUsuario.jsp" class="a">
-                                            <button class="btnAcoes"  style="padding: 10px 12px">Excluir</button>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
+                            <%
+                                ResultSet rs = makeQuery(String.format("SELECT * FROM Usuario"));
+                                
+                                while (rs.next()) {
+                                    Boolean[] papeis = (Boolean[]) rs.getArray("Papeis").getArray();
+                                    String papeisStr = "";
+                                    
+                                    for (int i = 0, count = 0; i < 4; ++i) {
+                                        if (papeis[i]) {
+                                            if (count > 0)
+                                                papeisStr += ", ";
+                                            
+                                            if (i == 0)
+                                                papeisStr += "Administrador";
+                                            else if (i == 1)
+                                                papeisStr += "Organizador";
+                                            else if (i == 2)
+                                                papeisStr += "Professor";
+                                            else
+                                                papeisStr += "Aluno";
+                                        }
+                                    }
+                                    
+                                    out.println(String.format("<tr class=\"trHover\"><td>%s</td><td>%s</td>", rs.getString("Email"), papeisStr));
+                                    out.println(String.format("<td style=\"background-color: white\"> <div class=\"btn-groupA\">"));
+                                    
+                                    out.println(String.format("<a href=\"editarUsuario.jsp\" class=\"a\"><button class=\"btnAcoes\"  style=\"padding: 10px 15px\">Editar</button></a>"));
+                                    out.println(String.format("<a href=\"excluirUsuario.jsp\" class=\"a\"><button class=\"btnAcoes\"  style=\"padding: 10px 12px\">Excluir</button></a>"));
+                                    
+                                    out.println(String.format("</div> </td> </tr>"));
+                                }
+                            %>
                         </tbody>
                     </table>   
                 </div>
