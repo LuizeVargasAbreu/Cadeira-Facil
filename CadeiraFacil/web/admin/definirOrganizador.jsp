@@ -35,7 +35,7 @@
                                         ResultSet rs = makeQuery(String.format("SELECT * FROM Usuario WHERE Papeis[3]=true AND Papeis[2]=false"));
                                         
                                         while (rs.next()) {
-                                            out.println(String.format("<option value=\"%s\">%s</option>", rs.getString("Email"), rs.getString("Nome")));
+                                            out.println(String.format("<option value=\"%s\">%s</option>", (rs.getString("Email") + "#" + rs.getString("Nome")), rs.getString("Nome")));
                                         }
                                     %>
                                 </select>
