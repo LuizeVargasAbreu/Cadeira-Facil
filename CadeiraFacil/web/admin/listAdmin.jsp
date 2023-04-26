@@ -11,6 +11,53 @@
 <%@include file="cabecalhoAdmin.jsp"%>
 <%@include file="../DBConn.jsp"%>
 
+<script>
+    let delUserEmail = "";
+    
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, true ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
+
+function EnableDivModal(_email) {
+    delUserEmail = _email;
+    
+    document.getElementById("myModal").hidden = false;
+}
+function DisableDivModal() {
+    document.getElementById("myModal").hidden = true;
+}
+function ExcluirUsuario() {
+    httpGet("excluir-ok.jsp?requestEditEmail=" + delUserEmail);
+    
+    DisableDivModal();
+    location.reload();
+}
+</script>
+
+<!-- The Modal -->
+<div id="myModal" class="modal" style="display: block" hidden>
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="infosModal">
+            <div class="centro">
+                <b>Deseja realmente excluir o usuário?</b>
+            </div><br><br>
+        </div>
+        <div class="btn-groupA centro">
+            <a href="javascript:ExcluirUsuario()" class="a">
+                <button class="btnAcoes"  style="padding: 25px 50px">Sim</button>
+            </a>
+            <a href="javascript:DisableDivModal()" class="a">
+                <button class="btnAcoes"  style="padding: 25px 50px; margin-left: 25px">Não</button>
+            </a>
+        </div>
+    </div>
+</div>
+
 <div class="btn-groupA" style="float: right; padding-top: 5%">
     <a href="definirOrganizador.jsp" class="a">
         <button class="btnCabecalho" style="padding: 16px 5px">Definir professor <br> como organizador</button>
@@ -67,7 +114,7 @@
                                     out.println(String.format("<td style=\"background-color: white\"> <div class=\"btn-groupA\">"));
                                     
                                     out.println(String.format("<a href=\"editarUsuario.jsp?requestEditEmail=%s\" class=\"a\"><button class=\"btnAcoes\"  style=\"padding: 10px 15px\">Editar</button></a>", rs.getArray("Email")));
-                                    out.println(String.format("<a href=\"excluirUsuario.jsp?requestEditEmail=%s\" class=\"a\"><button class=\"btnAcoes\"  style=\"padding: 10px 12px\">Excluir</button></a>", rs.getArray("Email")));
+                                    out.println(String.format("<a href=\"#\" onclick=\"javascript:EnableDivModal('%s')\" class=\"a\"><button class=\"btnAcoes\"  style=\"padding: 10px 12px\">Excluir</button></a>", rs.getArray("Email")));
                                     
                                     out.println(String.format("</div> </td> </tr>"));
                                 }
