@@ -1,4 +1,16 @@
+<%
+    String sessionLogin = (String) session.getAttribute("usuarioAdmin");
+    if (sessionLogin == null)
+        throw new ServletException("Invalid Login");
+        
+    Boolean[] sessionPapeis = (Boolean[]) session.getAttribute("usuarioPapeis");
+    if (!sessionPapeis[0])
+        throw new ServletException("Admin Only");
+%>
+
 <%@include file="cabecalhoAdmin.jsp"%>
+<%@include file="../DBConn.jsp"%>
+
 <%
     String msg="";
     
@@ -21,6 +33,7 @@
         {
             msg = "Informações do usuário alteradas com sucesso!";
             
+            makeQuery(String.format("UPDATE Usuario SET Nome='%s', Matricula='%s', Senha='%s' WHERE Email='%s'", nome, matricula, senha, email));
         }
         catch(Exception ex)
         {

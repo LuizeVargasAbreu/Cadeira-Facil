@@ -66,8 +66,8 @@
                                     out.println(String.format("<tr class=\"trHover\"><td>%s</td><td>%s</td>", rs.getString("Email"), papeisStr));
                                     out.println(String.format("<td style=\"background-color: white\"> <div class=\"btn-groupA\">"));
                                     
-                                    out.println(String.format("<a href=\"editarUsuario.jsp\" class=\"a\"><button class=\"btnAcoes\"  style=\"padding: 10px 15px\">Editar</button></a>"));
-                                    out.println(String.format("<a href=\"excluirUsuario.jsp\" class=\"a\"><button class=\"btnAcoes\"  style=\"padding: 10px 12px\">Excluir</button></a>"));
+                                    out.println(String.format("<a href=\"editarUsuario.jsp?requestEditEmail=%s\" class=\"a\"><button class=\"btnAcoes\"  style=\"padding: 10px 15px\">Editar</button></a>", rs.getArray("Email")));
+                                    out.println(String.format("<a href=\"excluirUsuario.jsp?requestEditEmail=%s\" class=\"a\"><button class=\"btnAcoes\"  style=\"padding: 10px 12px\">Excluir</button></a>", rs.getArray("Email")));
                                     
                                     out.println(String.format("</div> </td> </tr>"));
                                 }

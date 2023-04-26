@@ -1,4 +1,20 @@
+<%
+    String sessionLogin = (String) session.getAttribute("usuarioAdmin");
+    if (sessionLogin == null)
+        throw new ServletException("Invalid Login");
+        
+    Boolean[] sessionPapeis = (Boolean[]) session.getAttribute("usuarioPapeis");
+    if (!sessionPapeis[0])
+        throw new ServletException("Admin Only");
+        
+    String requestEditEmail = request.getParameter("requestEditEmail");
+    if (sessionLogin == null)
+        throw new ServletException("Invalid Request Email");
+%>
+
 <%@include file="cabecalhoAdmin.jsp"%>
+<%@include file="../DBConn.jsp"%>
+
 <div class="btn-groupA" style="float: right; padding-top: 5%">
     <a href="listAdmin.jsp" class="a">
         <button class="btnCabecalho" style="padding: 25px 50px">Voltar</button>
@@ -16,26 +32,47 @@
                     <div class="divCadastro">
                         <form action="editar-ok.jsp" method="post">
                             <div class="mdl-cell--12-col">
-                                <label for="txtNome">Nome:</label>
-                                <input type="text" name="txtNome" value="Pegar o nome do usuário no banco">
-
-                                <label for="txtMatricula">Matrícula/SIAPE:</label>
-                                <input type="text" name="txtMatricula" value="Pegar a matrícula do usuário no banco">
-
-                                <label for="txtEmail">E-mail:</label>
-                                <input type="email" name="txtEmail" value="Pegaroemaildousu@rionobanco.com">
-
-                                <label for="txtSenha">Senha:</label>
-                                <input type="text" name="txtSenha" value="Pegar a senha do usuário no banco">
-
-                                <label for="papelUsuario">Papel:</label>
-                                <br>
-                                <select name="papelUsuario">
-                                    <option value="selecionar" selected></option>
-                                    <option value="professor">Professor</option>
-                                    <option value="organizador">Organizador</option>
-                                    <option value="aluno">Aluno</option>
-                                </select>
+                                <%
+                                    ResultSet rs = makeQuery(String.format("SELECT * FROM Usuario WHERE Email='%s'", requestEditEmail));
+                                    if (rs.next()) {
+                                        out.println("<label for=\"txtNome\">Nome:</label>");
+                                        out.println(String.format("<input type=\"text\" name=\"txtNome\" value=\"%s\">", rs.getString("Nome")));
+                                        
+                                        out.println("<label for=\"txtMatricula\">Matrícula/SIAPE:</label>");
+                                        out.println(String.format("<input type=\"text\" name=\"txtMatricula\" value=\"%s\">", rs.getString("Matricula")));
+                                        
+                                        out.println("<label for=\"txtEmail\">E-mail:</label>");
+                                        out.println(String.format("<input type=\"email\" name=\"txtEmail\" value=\"%s\" readonly>", rs.getString("Email")));
+                                        
+                                        out.println("<label for=\"txtSenha\">Senha:</label>");
+                                        out.println(String.format("<input type=\"text\" name=\"txtSenha\" value=\"%s\">", rs.getString("Senha")));
+                                        
+                                        out.println("<label for=\"papelUsuario\">Papel:</label><br><select name=\"papelUsuario\">");
+                                        
+                                        Boolean selected = false;
+                                        Boolean[] papeis = (Boolean[]) rs.getArray("Papeis").getArray();
+                                        
+                                        for (int i = 0; i < 4; ++i) {
+                                            String papelStr = "Administrador";
+                                            
+                                            if (i == 1)
+                                                papelStr = "Organizador";
+                                            else if (i == 2)
+                                                papelStr = "Professor";
+                                            else if (i == 3)
+                                                papelStr = "Aluno";
+                                                
+                                            if (papeis[i] && !selected) {
+                                                selected = true;
+                                                out.println(String.format("<option value=\"%s\" selected>%s</option>", papelStr.toLowerCase(), papelStr));
+                                            }
+                                            else
+                                                out.println(String.format("<option value=\"%s\">%s</option>", papelStr.toLowerCase(), papelStr));
+                                        }
+                                        
+                                        out.println("</select>");
+                                    }
+                                %>
                             </div>
                             <div class="btn-groupA" style="float: right; margin-right: 1%">
                                 <button type="submit" class="btnAcoes"  style="padding: 25px 25px">Confirmar</button>
