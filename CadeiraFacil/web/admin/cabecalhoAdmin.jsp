@@ -68,7 +68,7 @@
             <header class="mdl-layout__header mdl-layout__header--scroll headerAdmin">
                 <div class="mdl-layout__header-row">
                     <div class="btn-groupA"style="padding-left: 99%;">
-                        <a href="index.html?sair=ok" class="a">
+                        <a href="../index.html?sair=ok" class="a">
                             <button class="btnAcoes" style="padding: 10px 10px">
                                 <div id="logout" class="icon material-icons">logout</div>
                                 <div class="mdl-tooltip mdl-tooltip--large" for="logout">
