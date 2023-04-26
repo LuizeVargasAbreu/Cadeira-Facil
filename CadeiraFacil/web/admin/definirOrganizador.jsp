@@ -1,4 +1,16 @@
+<%
+    String sessionLogin = (String) session.getAttribute("usuarioAdmin");
+    if (sessionLogin == null)
+        throw new ServletException("Invalid Login");
+        
+    Boolean[] sessionPapeis = (Boolean[]) session.getAttribute("usuarioPapeis");
+    if (!sessionPapeis[0])
+        throw new ServletException("Admin Only");
+%>
+
 <%@include file="cabecalhoAdmin.jsp"%>
+<%@include file="../DBConn.jsp"%>
+
 <div class="btn-groupA" style="float: right; padding-top: 5%">
     <a href="listAdmin.jsp" class="a">
         <button class="btnCabecalho" style="padding: 25px 50px">Voltar</button>
@@ -19,10 +31,13 @@
                                 <label for="txtNome">Nome:</label>
                                 <br>
                                 <select required name="txtNome" style="width: 100%;">
-                                    <option value="selecionar" selected></option>
-                                    <option value="Lisane Brisolara de Brisolara">Lisane Brisolara de Brisolara</option>
-                                    <option value="Larissa Astrogildo de Freitas">Larissa Astrogildo de Freitas</option>
-                                    <option value="Nome de outros professores">Nome de outros professores</option>
+                                    <%
+                                        ResultSet rs = makeQuery(String.format("SELECT * FROM Usuario WHERE Papeis[3]=true AND Papeis[2]=false"));
+                                        
+                                        while (rs.next()) {
+                                            out.println(String.format("<option value=\"%s\">%s</option>", rs.getString("Email"), rs.getString("Nome")));
+                                        }
+                                    %>
                                 </select>
                             </div>
                             <div class="mdl-cell--12-col">

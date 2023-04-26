@@ -31,9 +31,9 @@
                                 <label for="papelUsuario">Papel:</label>
                                 <br>
                                 <select required name="papelUsuario">
-                                    <option value="selecionar" selected></option>
-                                    <option value="professor">Professor</option>
+                                    <option value="administrador" selected>Administrador</option>
                                     <option value="organizador">Organizador</option>
+                                    <option value="professor">Professor</option>
                                     <option value="aluno">Aluno</option>
                                 </select>
                             </div>

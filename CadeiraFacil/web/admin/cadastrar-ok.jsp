@@ -36,9 +36,9 @@
         
             if (papel.equals("administrador"))
                 papelStr = "{true,false,false,false}";
-            else if (papel.equals("professor"))
-                papelStr = "{false,true,false,false}";
             else if (papel.equals("organizador"))
+                papelStr = "{false,true,false,false}";
+            else if (papel.equals("professor"))
                 papelStr = "{false,false,true,false}";
             else
                 papelStr = "{false,false,false,true}";
