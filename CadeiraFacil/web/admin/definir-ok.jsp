@@ -21,9 +21,9 @@
     else
     {
         
-        String email = request.getParameter("txtNome");
+        String email = request.getParameter("txtNome").substring(0, request.getParameter("txtNome").indexOf("#"));
         
-       try
+        try
         {
             msg = "se tornou organizador!";
             
@@ -33,17 +33,16 @@
         {
             msg = "Erro ao definir organizador.";
         }
-        
     }
     
-    String nome = request.getParameter("txtNome");
+    String nome = request.getParameter("txtNome").substring(request.getParameter("txtNome").indexOf("#") + 1);
 %>
 <!-- The Modal -->
 <div id="myModal" class="modal" style="display: block">
     <!-- Modal content -->
     <div class="modal-content">
         <a href="listAdmin.jsp" class="a">
-            <span class="close" onclick="fecharModal()">×</span>
+            <span class="close" onclick="fecharModal()">Ã—</span>
         </a>
         <div class="infosModal">
             <div class="centro">
