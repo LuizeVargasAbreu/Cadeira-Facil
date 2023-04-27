@@ -99,9 +99,9 @@
                                 <label for="papelUsuario">Papel:</label>
                                 <br>
                                 <select name="papelUsuario" selected value="<%=papel%>">
-                                    <option value="selecionar"></option>
-                                    <option value="professor">Professor</option>
+                                    <option value="administrador">Administrador</option>
                                     <option value="organizador">Organizador</option>
+                                    <option value="professor">Professor</option>
                                     <option value="aluno">Aluno</option>
                                 </select>
                             </div>
@@ -114,4 +114,4 @@
                 </div>
             </div>
         </section>
-<%@include file="../rodapeInicial.jsp"%>
+        <%@include file="../rodapeInicial.jsp"%>

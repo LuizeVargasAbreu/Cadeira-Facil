@@ -87,10 +87,10 @@
                         <table>
                             <tr>
                                 <td>
-                                    <button type="submit" class="button2" style="padding: 20px 30px;">Confirmar</button>
+                                    <button type="submit" class="button2" style="padding: 20px 25px;">Confirmar</button>
                                 </td>
                                 <td>
-                                    <button type="reset" class="button" style="padding: 20px 30px;">Limpar</button>
+                                    <button type="reset" class="button" style="padding: 20px 35px;">Limpar</button>
                                 </td>
                             </tr>
                         </table>
