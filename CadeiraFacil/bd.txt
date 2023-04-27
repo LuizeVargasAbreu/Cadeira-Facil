@@ -1,0 +1,92 @@
+CREATE TABLE Usuario (
+    Matricula VARCHAR NOT NULL,
+    Nome VARCHAR NOT NULL,
+    Email VARCHAR PRIMARY KEY,
+    Senha VARCHAR NOT NULL,
+    Papeis BOOLEAN[4] NOT NULL,
+    Usuario_TIPO INT
+);
+
+CREATE TABLE Submissao (
+    Titulo VARCHAR NOT NULL,
+    Coorientador VARCHAR NOT NULL,
+    Status VARCHAR NOT NULL,
+    Resumo VARCHAR NOT NULL,
+    Data DATE NOT NULL,
+    Arquivo VARCHAR NOT NULL,
+    ArquivoRessub VARCHAR,
+    fk_Orientador_Email VARCHAR NOT NULL,
+    fk_Turma_AnoSemestre VARCHAR NOT NULL,
+    fk_Aluno_Email VARCHAR NOT NULL,
+    PRIMARY KEY (fk_Turma_AnoSemestre, fk_Aluno_Email)
+);
+
+CREATE TABLE Turma (
+    AnoSemestre VARCHAR PRIMARY KEY,
+    PrazoSub DATE[2],
+    PrazoSub2 DATE[2],
+    PrazoRev DATE[2],
+    PrazoRev2 DATE[2],
+    fk_Organizador_Email VARCHAR NOT NULL
+);
+
+CREATE TABLE Revisao (
+    CriteriosObjetivos INT[6] NOT NULL,
+    CriteriosDissertivos VARCHAR[4] NOT NULL,
+    Data DATE NOT NULL,
+    FlagRessub BOOLEAN NOT NULL,
+    fk_Revisor_Email VARCHAR NOT NULL,
+    fk_Turma_AnoSemestre VARCHAR NOT NULL,
+    fk_Aluno_Email VARCHAR NOT NULL,
+    PRIMARY KEY (fk_Revisor_Email, fk_Turma_AnoSemestre, fk_Aluno_Email, FlagRessub)
+);
+
+CREATE TABLE aluno_turma (
+    fk_Turma_AnoSemestre VARCHAR NOT NULL,
+    fk_Aluno_Email VARCHAR NOT NULL,
+    PRIMARY KEY (fk_Turma_AnoSemestre, fk_Aluno_Email)
+);
+
+CREATE TABLE revisor_submissao (
+    fk_Revisor_Email VARCHAR NOT NULL,
+    fk_Turma_AnoSemestre VARCHAR NOT NULL,
+    fk_Aluno_Email VARCHAR NOT NULL,
+    PRIMARY KEY (fk_Turma_AnoSemestre, fk_Aluno_Email, fk_Revisor_Email)
+);
+ 
+ALTER TABLE Submissao ADD CONSTRAINT FK_Submissao_1
+    FOREIGN KEY (fk_Orientador_Email)
+    REFERENCES Usuario (Email)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE Submissao ADD CONSTRAINT FK_Submissao_2
+    FOREIGN KEY (fk_Turma_AnoSemestre, fk_Aluno_Email)
+    REFERENCES aluno_turma (fk_Turma_AnoSemestre, fk_Aluno_Email);
+ 
+ALTER TABLE Turma ADD CONSTRAINT FK_Turma_1
+    FOREIGN KEY (fk_Organizador_Email)
+    REFERENCES Usuario (Email)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE Revisao ADD CONSTRAINT FK_Revisao_1
+    FOREIGN KEY (fk_Revisor_Email, fk_Turma_AnoSemestre, fk_Aluno_Email)
+    REFERENCES revisor_submissao (fk_Revisor_Email, fk_Turma_AnoSemestre, fk_Aluno_Email);
+ 
+ALTER TABLE aluno_turma ADD CONSTRAINT FK_aluno_turma_1
+    FOREIGN KEY (fk_Turma_AnoSemestre)
+    REFERENCES Turma (AnoSemestre)
+    ON DELETE NO ACTION;
+ 
+ALTER TABLE aluno_turma ADD CONSTRAINT FK_aluno_turma_2
+    FOREIGN KEY (fk_Aluno_Email)
+    REFERENCES Usuario (Email)
+    ON DELETE NO ACTION;
+ 
+ALTER TABLE revisor_submissao ADD CONSTRAINT FK_revisor_submissao_1
+    FOREIGN KEY (fk_Revisor_Email)
+    REFERENCES Usuario (Email)
+    ON DELETE NO ACTION;
+
+ALTER TABLE revisor_submissao ADD CONSTRAINT FK_revisor_submissao_2
+    FOREIGN KEY (fk_Turma_AnoSemestre, fk_Aluno_Email)
+    REFERENCES Submissao (fk_Turma_AnoSemestre, fk_Aluno_Email);
