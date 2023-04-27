@@ -1,4 +1,4 @@
-<%@include file="cabecalhoAluno.jsp"%>
+<%@include file="cabecalhoProf.jsp"%>
 <div class="btn-groupA" style="float: right; padding-top: 5%">
     <a href="../escolherSessao.jsp" class="a">
         <button class="btnCabecalho" style="padding: 25px 50px">Voltar</button>
@@ -20,11 +20,11 @@
     <div class="mdl-layout__tab-panel is-active" id="overview">
         <div class="mdl-grid centro">
             <div class="btn-groupA">                 
-                <a href="alunoRealizar.jsp" class="a">
-                    <button class="btnOpcoes">Realizar submissão</button>
-                </a>
-                <a href="alunoSub.jsp" class="a">
-                    <button class="btnOpcoes">Visualizar submissão</button>
+                <a href="profOrientacoes.jsp" class="a">
+                    <button class="btnOpcoes" style="padding: 50px 50px;">Submissoes orientadas</button>
+                </a>             
+                <a href="index.html?sair=ok" class="a">
+                    <button class="btnOpcoes" style="padding: 50px 120px;">Revisões</button>
                 </a>
             </div>
         </div>

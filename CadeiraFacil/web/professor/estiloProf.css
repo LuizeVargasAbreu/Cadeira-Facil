@@ -1,7 +1,7 @@
 /* Cor do cabecalho */
 .headerAdmin
 {
-    background-color: #030085;
+    background-color: #085e00;
 }
 
 .centro
@@ -13,7 +13,7 @@
 
 /* Botoes do cabeçalho */
 .btn-groupA .btnCabecalho {
-    background-color: #0400C5;
+    background-color: #108506;
     border: none;
     color: white;
     text-align: center;
@@ -36,7 +36,7 @@
 
 /* Botoes das açoes */
 .btn-groupA .btnAcoes {
-    background-color: #030085;
+    background-color: #085e00;
     border: none;
     color: white;
     text-align: center;
@@ -116,7 +116,7 @@ select {
 }
 
 .btnOpcoes{
-    background-color: #030085;
+    background-color: #085e00;
     border: none;
     color: white;
     text-align: center;
@@ -127,5 +127,5 @@ select {
     border-radius: 10px;
     margin-top: 15%;
     margin-left: 50px;
-    padding: 50px 50px;
+    
 }

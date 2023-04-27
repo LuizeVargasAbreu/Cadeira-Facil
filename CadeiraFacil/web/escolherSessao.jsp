@@ -42,11 +42,11 @@
                                 if (i == 0)
                                     out.println("<td> <a href=\"admin/listAdmin.jsp\" class=\"a\"> <button class=\"button2\" style=\"padding: 25px 25px;\" name=\"btnAdmin\">Administrador</button> </a> </td>");
                                 else if (i == 1)
-                                    out.println("<td> <a href=\"professor/listProfessor.jsp\" class=\"a\"> <button class=\"button2\" style=\"padding: 25px 40px;\" name=\"btnProfessor\">Professor</button> </a> </td>");
+                                    out.println("<td> <a href=\"organizador/orgTurmas.jsp\" class=\"a\"> <button class=\"button2\" style=\"padding: 25px 30px;\" name=\"btnOrganizador\">Organizador</button> </a> </td>");
                                 else if (i == 2)
-                                    out.println("<td> <a href=\"organizador/listOrganizador.jsp\" class=\"a\"> <button class=\"button2\" style=\"padding: 25px 30px;\" name=\"btnOrganizador\">Organizador</button> </a> </td>");
+                                    out.println("<td> <a href=\"professor/profTurmas.jsp\" class=\"a\"> <button class=\"button2\" style=\"padding: 25px 40px;\" name=\"btnProfessor\">Professor</button> </a> </td>");
                                 else if (i == 3)
-                                    out.println("<td> <a href=\"aluno/listAluno.jsp\" class=\"a\"> <button class=\"button2\" style=\"padding: 25px 55px;\" name=\"btnAluno\">Aluno</button> </a> </td>");
+                                    out.println("<td> <a href=\"aluno/alunoTurmas.jsp\" class=\"a\"> <button class=\"button2\" style=\"padding: 25px 55px;\" name=\"btnAluno\">Aluno</button> </a> </td>");
                                     
                                 count++;
                             }
