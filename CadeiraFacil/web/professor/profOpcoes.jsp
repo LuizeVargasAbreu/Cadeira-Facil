@@ -21,10 +21,10 @@
         <div class="mdl-grid centro">
             <div class="btn-groupA">                 
                 <a href="profOrientacoes.jsp" class="a">
-                    <button class="btnOpcoes" style="padding: 50px 50px;">Submissoes orientadas</button>
+                    <button class="btnOpcoes" style="padding: 50px 50px;">Submissões orientadas</button>
                 </a>             
                 <a href="index.html?sair=ok" class="a">
-                    <button class="btnOpcoes" style="padding: 50px 120px;">Revis�es</button>
+                    <button class="btnOpcoes" style="padding: 50px 120px;">Revisões</button>
                 </a>
             </div>
         </div>
