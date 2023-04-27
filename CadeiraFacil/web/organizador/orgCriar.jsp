@@ -14,18 +14,19 @@
                 <div class="mdl-card__supporting-text">
                     <h3>Criar turma</h3>
                     <div class="divCadastro">
-                        <form action="cadastrar-ok.jsp" method="post">
+                        <form action="#" method="post">
                             <div class="mdl-cell--12-col">
-                                <label for="txtNome">Ano/Semestre:</label>
-                                <input type="text" required name="txtNome">
+                                <label for="anoSemestre">Ano/Semestre:</label>
+                                <input type="text" required name="anoSemestre">
                                 <br>
-                                <label for="txtMatricula">CSV alunos</label>
-                                <input type="file" required name="txtMatricula">
+                                <label for="csvAlunos">CSV Alunos:</label>
+                                <br>
+                                <input type="file" required name="csvAlunos">
                                 
                             </div>
-                            <div class="btn-groupA" style="float: right; margin-right: 1%">
+                            <div class="btn-groupA" style="float: right; margin-right: 1%; padding-top: 5%">
                                 <button type="submit" class="btnAcoes"  style="padding: 25px 25px">Confirmar</button>
-                                <button type="reset" class="btnAcoes"  style="padding: 25px 25px">Cancelar</button>
+                                <button type="reset" class="btnAcoes"  style="padding: 25px 25px; margin-left: 10px">Cancelar</button>
                             </div>
                         </form>                    
                     </div>
