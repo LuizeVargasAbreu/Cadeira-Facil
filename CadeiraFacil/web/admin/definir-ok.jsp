@@ -42,7 +42,7 @@
     <!-- Modal content -->
     <div class="modal-content">
         <a href="listAdmin.jsp" class="a">
-            <span class="close" onclick="fecharModal()">Ã—</span>
+            <span class="close" onclick="fecharModal()">×</span>
         </a>
         <div class="infosModal">
             <div class="centro">

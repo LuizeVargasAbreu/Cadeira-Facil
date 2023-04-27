@@ -21,10 +21,10 @@
         <div class="mdl-grid centro">
             <div class="btn-groupA">                 
                 <a href="alunoRealizar.jsp" class="a">
-                    <button class="btnOpcoes">Realizar submissão</button>
+                    <button class="btnOpcoes" style="padding: 50px 50px">Realizar submissão</button>
                 </a>
                 <a href="alunoSub.jsp" class="a">
-                    <button class="btnOpcoes">Visualizar submissão</button>
+                    <button class="btnOpcoes" style="padding: 50px 41px">Visualizar submissão</button>
                 </a>
             </div>
         </div>

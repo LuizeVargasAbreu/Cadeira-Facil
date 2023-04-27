@@ -1,6 +1,12 @@
 <%@include file="cabecalhoAluno.jsp"%>
 <div class="btn-groupA" style="float: right; padding-top: 5%">
-    <a href="listAdmin.jsp" class="a">
+    <!--    <a href="listAdmin.jsp" class="a">
+            <button class="btnCabecalho" style="padding: 25px 22px">Ressubmeter</button>
+        </a>
+        <a href="listAdmin.jsp" class="a">
+            <button class="btnCabecalho" style="padding: 16px 36px">Visualizar <br> revisões</button>
+        </a>-->
+    <a href="alunoOpcoes.jsp" class="a">
         <button class="btnCabecalho" style="padding: 25px 50px">Alterar</button>
     </a>
     <a href="alunoOpcoes.jsp" class="a">
@@ -16,33 +22,30 @@
             <div class="mdl-card mdl-cell mdl-cell--12-col">
                 <div class="mdl-card__supporting-text">
                     <h3>Minha submissão</h3>
-                    <div class="divCadastro">
-                        <form action="cadastrar-ok.jsp" method="post">
-                            <div class="mdl-cell--12-col">
-                                <label for="txtNome">Título:</label><br>
-                                <input type="text" required name="txtNome">
+                    <div class="mdl-cell--12-col">
+                        <input type="text" name="status" value="Status" style="width: 150px; color: #fefefe; float: right; text-align: center; padding: 10px 30px" readonly>
+                    </div>
+                    <br>
+                    <div class="mdl-cell--12-col">
+                        <label for="titulo">Título:</label><br>
+                        <input type="text" name="titulo" value="Título" style="color: #fefefe">
 
-                                <label for="papelUsuario">Orientador</label>
-                                <br>
-                                <input type="email" required name="txtEmail">
-                                <br>
-                                <label for="txtMatricula">Coorientador:</label>
-                                <input type="text" required name="txtMatricula">
+                        <label for="orientador">Orientador:</label>
+                        <input type="text" name="orientador" value="Orientador" style="color: #fefefe">
 
-                                <label for="txtEmail">Resumo:</label>
-                                <input type="email" required name="txtEmail">
+                        <label for="coorientador">Coorientador:</label>
+                        <input type="text" name="coorientador" value="Coorientador" style="color: #fefefe">
 
-                                <label for="txtEmail">Arquivo:</label>
-                                <input type="file" required name=".pdf">
+                        <label for="resumo">Resumo:</label>
+                        <input type="text" name="resumo" value="Resumo" style="color: #fefefe">
 
-                            </div>
-                            <div class="btn-groupA" style="float: right; margin-right: 1%">
-                                <button type="submit" class="btnAcoes"  style="padding: 25px 25px">Confirmar</button>
-                                <button type="reset" class="btnAcoes"  style="padding: 25px 25px">Cancelar</button>
-                            </div>
-                        </form>                    
+                        <label for="arquivo">Arquivo:</label>
+                        <br>
+                        <input type="text" name="arquivo" value="Arquivo.pdf" style="width: auto; color: #fefefe">
+
                     </div>
                 </div>
             </div>
-        </section>
-         <%@include file="../rodapeInicial.jsp"%>
+    </div>
+</section>
+<%@include file="../rodapeInicial.jsp"%>

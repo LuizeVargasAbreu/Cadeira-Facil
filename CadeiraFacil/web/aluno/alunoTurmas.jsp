@@ -16,16 +16,28 @@
             <div class="mdl-card mdl-cell mdl-cell--12-col">
                 <div class="mdl-card__supporting-text">
                     <h3>Minhas turmas</h3>
-                    <div class="mdl-cell--12-col">
-                        <label for="anoSemestre">Ano/Semestre</label>
-                        <br>
-                        <input type="text" name="anoSemestre" value="2022/2" >                              
-                    </div>
-                    <div class="btn-groupA" style="float: right">
-                        <a href="alunoOpcoes.jsp" class="a">                                    
-                            <button class="btnAcoes"  style="padding: 25px 25px">Abrir</button>
-                        </a>                   
-                    </div>
+                    <table style="width: 130%">
+                        <thead>
+                            <tr>
+                                <th>Ano/Semestre</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                ResultSet rs = makeQuery(String.format("SELECT * FROM Aluno_Turma"));
+                                while (rs.next()) {
+                                               
+                                    out.println(String.format("<tr class=\"trHover\"><td>%s</td>", rs.getArray("fk_Turma_AnoSemestre")));
+                                    out.println(String.format("<td style=\"background-color: white\"> <div class=\"btn-groupA\">"));
+                                    
+                                    out.println(String.format("<a href=\"alunoOpcoes.jsp\" class=\"a\"><button class=\"btnAcoes\"  style=\"padding: 10px 15px\">Abrir</button></a>"));
+                                                   
+                                    out.println(String.format("</div> </td> </tr>"));
+                                }
+                            %>
+                        </tbody>
+                    </table>   
                 </div>
             </div>
         </section>
