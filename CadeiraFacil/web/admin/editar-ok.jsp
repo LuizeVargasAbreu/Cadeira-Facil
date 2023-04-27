@@ -31,13 +31,23 @@
         
        try
         {
-            msg = "Informações do usuário alteradas com sucesso!";
+            msg = "InformaÃ§Ãµes do usuÃ¡rio alteradas com sucesso!";
+            String papelStr = "";
+        
+            if (papel.equals("administrador"))
+                papelStr = "{true,false,false,false}";
+            else if (papel.equals("organizador"))
+                papelStr = "{false,true,false,false}";
+            else if (papel.equals("professor"))
+                papelStr = "{false,false,true,false}";
+            else
+                papelStr = "{false,false,false,true}";
             
-            makeQuery(String.format("UPDATE Usuario SET Nome='%s', Matricula='%s', Senha='%s' WHERE Email='%s'", nome, matricula, senha, email));
+            makeQuery(String.format("UPDATE Usuario SET Nome='%s', Matricula='%s', Senha='%s', Papeis='%s' WHERE Email='%s'", nome, matricula, senha, papelStr, email));
         }
         catch(Exception ex)
         {
-            msg = "Erro ao alterar informações do usuário.";
+            msg = "Erro ao alterar informaÃ§Ãµes do usuÃ¡rio.";
         }
         
     }
@@ -53,14 +63,14 @@
     <!-- Modal content -->
     <div class="modal-content">
         <a href="listAdmin.jsp" class="a">
-            <span class="close" onclick="fecharModal()">×</span>
+            <span class="close" onclick="fecharModal()">Ã—</span>
         </a>
         <div class="infosModal">
             <div class="centro">
                 <b><%=msg%></b>
             </div><br><br>
             <b>Nome:</b> <%=nome%><br><br>
-            <b>Matrícula/SIAPE:</b> <%=matricula%><br><br>
+            <b>MatrÃ­cula/SIAPE:</b> <%=matricula%><br><br>
             <b>E-mail:</b> <%=email%><br><br>
             <b>Papel:</b> <%=papel%><br><br>
         </div>
@@ -80,14 +90,14 @@
         <section class="mdl-grid mdl-grid--no-spacing">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
                 <div class="mdl-card__supporting-text">
-                    <h3>Editar usuário</h3>
+                    <h3>Editar usuÃ¡rio</h3>
                     <div class="divCadastro">
                         <form action="cadastrar-ok.jsp" method="post">
                             <div class="mdl-cell--12-col">
                                 <label for="txtNome">Nome:</label>
                                 <input type="text" name="txtNome" value="<%=nome%>">
 
-                                <label for="txtMatricula">Matrícula/SIAPE:</label>
+                                <label for="txtMatricula">MatrÃ­cula/SIAPE:</label>
                                 <input type="text" name="txtMatricula" value="<%=matricula%>">
 
                                 <label for="txtEmail">E-mail:</label>
