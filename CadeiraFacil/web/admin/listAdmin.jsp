@@ -12,12 +12,11 @@
 <%@include file="../DBConn.jsp"%>
 
 <script>
-    let delUserEmail = "";
+let delUserEmail = "";
     
-function httpGet(theUrl)
-{
+function httpGet(theUrl) {
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, true ); // false for synchronous request
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
     xmlHttp.send( null );
     return xmlHttp.responseText;
 }

@@ -90,7 +90,7 @@
                                     <button type="submit" class="button2" style="padding: 20px 30px;">Confirmar</button>
                                 </td>
                                 <td>
-                                    <button type="reset" class="button" style="padding: 20px 30px;">Cancelar</button>
+                                    <button type="reset" class="button" style="padding: 20px 30px;">Limpar</button>
                                 </td>
                             </tr>
                         </table>

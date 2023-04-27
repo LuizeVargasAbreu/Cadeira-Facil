@@ -22,7 +22,7 @@
         else {
             ResultSet rs = makeQuery(String.format("SELECT * FROM Usuario WHERE Email='%s'", login));
 
-            if (rs.next() && senha.equals(rs.getString("Senha"))) {
+            if (rs != null && rs.next() && senha.equals(rs.getString("Senha"))) {
                 //Crio a Sessão do usuário Admin
                 session.setAttribute("usuarioAdmin", login);
                 session.setAttribute("usuarioSenha", senha);
