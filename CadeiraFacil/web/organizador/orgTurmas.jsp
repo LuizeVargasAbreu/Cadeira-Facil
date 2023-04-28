@@ -1,3 +1,13 @@
+<%
+    String sessionLogin = (String) session.getAttribute("usuarioAdmin");
+    if (sessionLogin == null)
+        throw new ServletException("Invalid Login");
+        
+    Boolean[] sessionPapeis = (Boolean[]) session.getAttribute("usuarioPapeis");
+    if (!sessionPapeis[0])
+        throw new ServletException("Admin Only");
+%>
+
 <%@include file="cabecalhoOrg.jsp"%>
 <%@include file="../DBConn.jsp"%>
 
@@ -28,14 +38,13 @@
                         </thead>
                         <tbody>
                             <%
-                                ResultSet rs = makeQuery(String.format("SELECT * FROM Aluno_Turma"));
+                                ResultSet rs = makeQuery(String.format("SELECT * FROM Turma WHERE fk_organizador_email='%s'", sessionLogin));
                                 while (rs.next()) {
                                                
-                                    out.println(String.format("<tr class=\"trHover\"><td>%s</td>", rs.getArray("fk_Turma_AnoSemestre")));
+                                    out.println(String.format("<tr class=\"trHover\"><td>%s</td>", rs.getString("AnoSemestre")));
                                     out.println(String.format("<td style=\"background-color: white\"> <div class=\"btn-groupA\">"));
                                     
-                                    out.println(String.format("<a href=\"orgOpcoes.jsp\" class=\"a\"><button class=\"btnAcoes\"  style=\"padding: 10px 15px\">Abrir</button></a>"));
-                                                   
+                                    out.println(String.format("<a href=\"orgOpcoes.jsp?turmaAno=%s\" class=\"a\"><button class=\"btnAcoes\"  style=\"padding: 10px 15px\">Abrir</button></a>", rs.getString("AnoSemestre")));
                                     out.println(String.format("</div> </td> </tr>"));
                                 }
                             %>

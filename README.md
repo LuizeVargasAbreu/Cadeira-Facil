@@ -11,10 +11,10 @@ Dicas de como executar o projeto:
 
 
 Downloads necessários:
-Java 17: https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.exe
-Netbeans 17: https://dlcdn.apache.org/netbeans/netbeans-installers/17/Apache-NetBeans-17-bin-windows-x64.exe
-PostgreeSql 15 (instalar pgAdmin): https://get.enterprisedb.com/postgresql/postgresql-15.2-2-windows-x64.exe
-Glassfish 7: https://download.eclipse.org/ee4j/glassfish/glassfish-7.0.3.zip
+- Java 17: https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.exe
+- Netbeans 17: https://dlcdn.apache.org/netbeans/netbeans-installers/17/Apache-NetBeans-17-bin-windows-x64.exe
+- PostgreeSql 15 (instalar pgAdmin): https://get.enterprisedb.com/postgresql/postgresql-15.2-2-windows-x64.exe
+- Glassfish 7: https://download.eclipse.org/ee4j/glassfish/glassfish-7.0.3.zip
 
 
 Configurações depois das instalações dos programas:

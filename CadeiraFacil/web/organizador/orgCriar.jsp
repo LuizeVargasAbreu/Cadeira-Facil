@@ -1,4 +1,15 @@
+<%
+    String sessionLogin = (String) session.getAttribute("usuarioAdmin");
+    if (sessionLogin == null)
+        throw new ServletException("Invalid Login");
+        
+    Boolean[] sessionPapeis = (Boolean[]) session.getAttribute("usuarioPapeis");
+    if (!sessionPapeis[1])
+        throw new ServletException("Organizador Only");
+%>
+
 <%@include file="cabecalhoOrg.jsp"%>
+
 <div class="btn-groupA" style="float: right; padding-top: 5%">
     <a href="orgTurmas.jsp" class="a">
         <button class="btnCabecalho" style="padding: 25px 50px">Voltar</button>
@@ -14,14 +25,15 @@
                 <div class="mdl-card__supporting-text">
                     <h3>Criar turma</h3>
                     <div class="divCadastro">
-                        <form action="#" method="post">
+                        <form action="../FileUploadCsv" method="post" enctype="multipart/form-data">
                             <div class="mdl-cell--12-col">
                                 <label for="anoSemestre">Ano/Semestre:</label>
                                 <input type="text" required name="anoSemestre">
                                 <br>
                                 <label for="csvAlunos">CSV Alunos:</label>
                                 <br>
-                                <input type="file" required name="csvAlunos">
+                                <input type="text" required name="organizador" value=<% out.print(sessionLogin); %> hidden>
+                                <input type="file" required name="csvAlunos" accept=".csv">
                                 
                             </div>
                             <div class="btn-groupA" style="float: right; margin-right: 1%; padding-top: 5%">
