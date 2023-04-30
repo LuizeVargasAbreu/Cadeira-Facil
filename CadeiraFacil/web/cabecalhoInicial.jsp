@@ -21,7 +21,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-        <title>Cadeira Fácil</title>
+        <title>Cadeira FÃ¡cil</title>
 
         <!-- Add to homescreen for Chrome on Android -->
         <meta name="mobile-web-app-capable" content="yes">
@@ -60,6 +60,13 @@
                 z-index: 900;
             }
         </style>
+        
+        <link href='https://fonts.googleapis.com/css?family=Lexend' rel='stylesheet'>
+        <style>
+        html, body, h3, h4, input, button {
+            font-family: 'Lexend';
+        }
+        </style>
     </head>
     <body class="mdl-demo mdl-color--white-100 mdl-color-text--grey-700 mdl-base">
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -67,7 +74,7 @@
                 <div class="mdl-layout__header-row">
                 </div>
                 <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-                    <h3>Cadeira Fácil</h3>
+                    <h3 style="font-size: 40px">Cadeira FÃ¡cil</h3>
                 </div>
                 <div class="mdl-layout--large-screen-only mdl-layout__header-row">
                     <div class="mdl-tabs">
