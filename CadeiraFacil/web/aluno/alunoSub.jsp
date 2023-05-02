@@ -1,4 +1,18 @@
+<%
+    String sessionLogin = (String) session.getAttribute("usuarioAdmin");
+    if (sessionLogin == null)
+        throw new ServletException("Invalid Login");
+        
+    Boolean[] sessionPapeis = (Boolean[]) session.getAttribute("usuarioPapeis");
+    if (!sessionPapeis[3])
+        throw new ServletException("Aluno Only");
+        
+    String sessionNome = (String) session.getAttribute("usuarioNome");
+%>
+
 <%@include file="cabecalhoAluno.jsp"%>
+<%@include file="../DBConn.jsp"%>
+
 <!--    
     <a href="listAdmin.jsp" class="a">
         <button class="btnCabecalho" style="padding: 25px 22px">Ressubmeter</button>
@@ -37,22 +51,31 @@
                     </div>
                     <br>
                     <div class="mdl-cell--12-col">
-                        <label for="titulo">Título:</label><br>
-                        <input type="text" name="titulo" value="Título" style="color: #fefefe">
+                        <%
+                            ResultSet rs = makeQuery(String.format("SELECT * FROM Submissao WHERE fk_Aluno_Email='%s' AND fk_Turma_AnoSemestre='%s'", sessionLogin, request.getParameter("turmaAno")));
 
-                        <label for="orientador">Orientador:</label>
-                        <input type="text" name="orientador" value="Orientador" style="color: #fefefe">
+                            if (rs != null && rs.next()) {
+                                out.println(String.format("<label for=\"titulo\">Título:</label><br>"));
+                                out.println(String.format("<input type=\"text\" name=\"titulo\" value=\"%s\" style=\"color: #fefefe\" readonly>", rs.getString("Titulo")));
 
-                        <label for="coorientador">Coorientador:</label>
-                        <input type="text" name="coorientador" value="Coorientador" style="color: #fefefe">
+                                out.println(String.format("<label for=\"orientador\">Orientador:</label>"));
+                                out.println(String.format("<input type=\"text\" name=\"orientador\" value=\"%s\" style=\"color: #fefefe\" readonly>", rs.getString("fk_Orientador_Email")));
 
-                        <label for="resumo">Resumo:</label>
-                        <input type="text" name="resumo" value="Resumo" style="color: #fefefe">
+                                out.println(String.format("<label for=\"coorientador\">Coorientador:</label><br>"));
+                                out.println(String.format("<input type=\"text\" name=\"coorientador\" value=\"%s\" style=\"color: #fefefe\" readonly>", rs.getString("Coorientador")));
 
-                        <label for="arquivo">Arquivo:</label>
-                        <br>
-                        <input type="text" name="arquivo" value="Arquivo.pdf" style="width: auto; color: #fefefe">
+                                out.println(String.format("<label for=\"resumo\">Resumo:</label><br>"));
+                                out.println(String.format("<input type=\"text\" name=\"resumo\" value=\"%s\" style=\"color: #fefefe\" readonly>", rs.getString("Resumo")));
 
+                                out.println(String.format("<label for=\"arquivo\">Arquivo:</label><br>"));
+                                out.println(String.format("<input type=\"text\" name=\"fileName\" value=\"%s\" style=\"color: #fefefe\" readonly>", rs.getString("Arquivo")));
+                                
+                                out.println(String.format("<form action=\"../FileUploadSubmissao\" method=\"get\" enctype=\"multipart/form-data\">"));
+                                out.println(String.format("<input type=\"text\" name=\"turmaAno\" value=\"%s\" hidden>", request.getParameter("turmaAno")));
+                                out.println(String.format("<input type=\"text\" name=\"fileName\" value=\"%s\" hidden>", rs.getString("Arquivo")));
+                                out.println(String.format("<button type=\"submit\" class=\"btnAcoes\"  style=\"padding: 25px 25px\">Baixar</button></form>"));
+                            }
+                        %>
                     </div>
                 </div>
             </div>

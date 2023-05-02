@@ -1,5 +1,16 @@
+<%
+    String sessionLogin = (String) session.getAttribute("usuarioAdmin");
+    if (sessionLogin == null)
+        throw new ServletException("Invalid Login");
+        
+    Boolean[] sessionPapeis = (Boolean[]) session.getAttribute("usuarioPapeis");
+    if (!sessionPapeis[3])
+        throw new ServletException("Aluno Only");
+%>
+
 <%@include file="cabecalhoAluno.jsp"%>
 <%@include file="../DBConn.jsp"%>
+
 <div class="btn-groupA" style="margin: 3% 0 0 72%">
     <div class="btn-groupA" style="margin-left: 85%">
         <a href="../index.html?sair=ok" class="a">
@@ -32,13 +43,14 @@
                         </thead>
                         <tbody>
                             <%
-                                ResultSet rs = makeQuery(String.format("SELECT * FROM Aluno_Turma"));
-                                while (rs.next()) {
+                                ResultSet rs = makeQuery(String.format("SELECT * FROM Aluno_Turma WHERE fk_Aluno_Email='%s'", sessionLogin));
+                                
+                                while (rs != null && rs.next()) {
                                                
                                     out.println(String.format("<tr class=\"trHover\"><td>%s</td>", rs.getArray("fk_Turma_AnoSemestre")));
                                     out.println(String.format("<td style=\"background-color: white\"> <div class=\"btn-groupA\">"));
                                     
-                                    out.println(String.format("<a href=\"alunoOpcoes.jsp\" class=\"a\"><button class=\"btnAcoes\"  style=\"padding: 10px 15px\">Abrir</button></a>"));
+                                    out.println(String.format("<a href=\"alunoOpcoes.jsp?turmaAno=%s\" class=\"a\"><button class=\"btnAcoes\"  style=\"padding: 10px 15px\">Abrir</button></a>", rs.getString("fk_Turma_AnoSemestre")));
                                                    
                                     out.println(String.format("</div> </td> </tr>"));
                                 }

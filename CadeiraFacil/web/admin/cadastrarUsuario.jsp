@@ -1,4 +1,15 @@
+<%
+    String sessionLogin = (String) session.getAttribute("usuarioAdmin");
+    if (sessionLogin == null)
+        throw new ServletException("Invalid Login");
+        
+    Boolean[] sessionPapeis = (Boolean[]) session.getAttribute("usuarioPapeis");
+    if (!sessionPapeis[0])
+        throw new ServletException("Admin Only");
+%>
+
 <%@include file="cabecalhoAdmin.jsp"%>
+
 <div class="btn-groupA" style="margin: 3% 0 0 64%">
     <div class="btn-groupA" style="margin-left: 85%">
         <a href="../index.html?sair=ok" class="a">

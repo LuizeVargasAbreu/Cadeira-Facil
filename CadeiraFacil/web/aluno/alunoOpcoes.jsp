@@ -29,10 +29,10 @@
     <div class="mdl-layout__tab-panel is-active" id="overview">
         <div class="mdl-grid centro">
             <div class="btn-groupA">                 
-                <a href="alunoRealizar.jsp" class="a">
+                <a href="alunoRealizar.jsp?turmaAno=<% out.print(request.getParameter("turmaAno")); %>" class="a">
                     <button class="btnOpcoes" style="padding: 50px 50px">Realizar submissão</button>
                 </a>
-                <a href="alunoSub.jsp" class="a">
+                <a href="alunoSub.jsp?turmaAno=<% out.print(request.getParameter("turmaAno")); %>" class="a">
                     <button class="btnOpcoes" style="padding: 50px 41px">Visualizar submissão</button>
                 </a>
             </div>

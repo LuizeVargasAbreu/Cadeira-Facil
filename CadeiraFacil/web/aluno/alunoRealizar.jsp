@@ -1,4 +1,18 @@
+<%
+    String sessionLogin = (String) session.getAttribute("usuarioAdmin");
+    if (sessionLogin == null)
+        throw new ServletException("Invalid Login");
+        
+    Boolean[] sessionPapeis = (Boolean[]) session.getAttribute("usuarioPapeis");
+    if (!sessionPapeis[3])
+        throw new ServletException("Aluno Only");
+        
+    String sessionNome = (String) session.getAttribute("usuarioNome");
+%>
+
 <%@include file="cabecalhoAluno.jsp"%>
+<%@include file="../DBConn.jsp"%>
+
 <div class="btn-groupA" style="margin: 3% 0 0 72%">
     <div class="btn-groupA" style="margin-left: 85%">
         <a href="../index.html?sair=ok" class="a">
@@ -23,15 +37,20 @@
                 <div class="mdl-card__supporting-text">
                     <h3>Realizar submissão</h3>
                     <div class="divCadastro">
-                        <form action="#" method="post">
+                        <form action="../FileUploadSubmissao" method="post" enctype="multipart/form-data">
                             <div class="mdl-cell--12-col">
                                 <label for="titulo">Título:</label><br>
                                 <input type="text" required name="titulo">
 
                                 <label for="orientador">Orientador:</label>
                                 <select required name="orientador" style="width: 100%;">
-                                    <option value="" selected>Lisane Brisolara de Brisolara</option>
-                                    <option value="">Larissa Astrogildo de Freitas</option>
+                                    <%
+                                        ResultSet rs = makeQuery(String.format("SELECT Email,Nome FROM Usuario WHERE Papeis[3]=true"));
+
+                                        while (rs.next()) {
+                                            out.println(String.format("<option value=\"%s\">%s</option>", rs.getString("Email"), rs.getString("Nome")));
+                                        }
+                                    %>
                                 </select>
 
                                 <label for="coorientador">Coorientador:</label>
@@ -42,7 +61,10 @@
 
                                 <label for="arquivo">Arquivo:</label>
                                 <br>
-                                <input type="file" required name="arquivo" style="width: auto">
+                                <input type="file" required name="arquivo" style="width: auto" accept=".pdf">
+                                <input type="text" required name="aluno" value=<% out.print(sessionLogin); %> hidden>
+                                <input type="text" required name="alunoNome" value=<% out.print(sessionNome); %> hidden>
+                                <input type="text" required name="turmaAno" value=<% out.print(request.getParameter("turmaAno")); %> hidden>
 
                             </div>
                             <div class="btn-groupA" style="float: right; margin-right: 1%">
