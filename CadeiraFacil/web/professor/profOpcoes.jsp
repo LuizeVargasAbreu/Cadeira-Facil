@@ -1,9 +1,18 @@
 <%@include file="cabecalhoProf.jsp"%>
-<div class="btn-groupA" style="float: right; padding-top: 5%">
-    <a href="../escolherSessao.jsp" class="a">
+<div class="btn-groupA" style="margin: 3% 0 0 67%">
+    <div class="btn-groupA" style="margin-left: 85%">
+        <a href="../index.html?sair=ok" class="a">
+            <button class="btnAcoes">
+                <div id="logout" class="icon material-icons">logout</div>
+                <div class="mdl-tooltip mdl-tooltip--large" for="logout">
+                    Sair
+                </div>
+            </button>
+        </a>
+    </div>
+    <a href="profTurmas.jsp" class="a">
         <button class="btnCabecalho" style="padding: 25px 50px">Voltar</button>
     </a>
-</div>
 </div>
 </div>
 </header>
@@ -21,11 +30,11 @@
         <div class="mdl-grid centro">
             <div class="btn-groupA">                 
                 <a href="profOrientacoes.jsp" class="a">
-                    <button class="btnOpcoes" style="padding: 50px 50px;">SubmissÃµes orientadas</button>
+                    <button class="btnOpcoes" style="padding: 50px 50px;">Submissões orientadas</button>
                 </a>             
                 <a href="index.html?sair=ok" class="a">
-                    <button class="btnOpcoes" style="padding: 50px 120px;">RevisÃµes</button>
+                    <button class="btnOpcoes" style="padding: 50px 120px;">Revisões</button>
                 </a>
             </div>
         </div>
-        <%@include file="../rodapeInicial.jsp"%>
+<%@include file="../rodapeInicial.jsp"%>

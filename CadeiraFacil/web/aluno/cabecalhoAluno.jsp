@@ -21,7 +21,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-        <title>Cadeira F√°cil</title>
+        <title>Cadeira F·cil</title>
 
         <!-- Add to homescreen for Chrome on Android -->
         <meta name="mobile-web-app-capable" content="yes">
@@ -72,20 +72,5 @@
     <body class="mdl-demo mdl-color--white-100 mdl-color-text--grey-700 mdl-base">
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
             <header class="mdl-layout__header mdl-layout__header--scroll headerAdmin">
-                <div class="mdl-layout__header-row">
-                    <div class="btn-groupA"style="padding-left: 99%;">
-                        <a href="../index.html?sair=ok" class="a">
-                            <button class="btnAcoes" style="padding: 10px 10px">
-                                <div id="logout" class="icon material-icons">logout</div>
-                                <div class="mdl-tooltip mdl-tooltip--large" for="logout">
-                                    Sair
-                                </div>
-                            </button>
-                        </a>
-                    </div>
-                </div>
-                <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-                    <h3 style="font-size: 40px">√Årea do Aluno</h3>
-                </div>
-                <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-                    <div class="mdl-tabs">
+                <div class="mdl-layout--large-screen-only mdl-layout__header-row" style="height: 80px">
+                    <h3 style="font-size: 40px; padding-top: 20px">¡rea do Aluno</h3>

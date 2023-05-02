@@ -1,7 +1,5 @@
 <%@include file="cabecalhoInicial.jsp"%>
 <%@include file="DBConn.jsp"%>
-</div>
-</div>
 </header>
 <%
     String msg = "";

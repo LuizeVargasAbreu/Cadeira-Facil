@@ -10,11 +10,20 @@
 
 <%@include file="cabecalhoOrg.jsp"%>
 
-<div class="btn-groupA" style="float: right; padding-top: 5%">
+<div class="btn-groupA" style="margin: 3% 0 0 63%">
+    <div class="btn-groupA" style="margin-left: 85%">
+        <a href="../index.html?sair=ok" class="a">
+            <button class="btnAcoes">
+                <div id="logout" class="icon material-icons">logout</div>
+                <div class="mdl-tooltip mdl-tooltip--large" for="logout">
+                    Sair
+                </div>
+            </button>
+        </a>
+    </div>
     <a href="orgTurmas.jsp" class="a">
         <button class="btnCabecalho" style="padding: 25px 50px">Voltar</button>
     </a>
-</div>
 </div>
 </div>
 </header>
@@ -34,11 +43,13 @@
                                 <br>
                                 <input type="text" required name="organizador" value=<% out.print(sessionLogin); %> hidden>
                                 <input type="file" required name="csvAlunos" accept=".csv">
-                                
+
                             </div>
                             <div class="btn-groupA" style="float: right; margin-right: 1%; padding-top: 5%">
                                 <button type="submit" class="btnAcoes"  style="padding: 25px 25px">Confirmar</button>
-                                <button type="reset" class="btnAcoes"  style="padding: 25px 25px; margin-left: 10px">Cancelar</button>
+                                <a href="orgTurmas.jsp" class="a">
+                                    <button type="button" class="btnAcoes"  style="padding: 25px 25px; margin-left: 10px">Cancelar</button>
+                                </a>
                             </div>
                         </form>                    
                     </div>

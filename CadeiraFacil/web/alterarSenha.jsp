@@ -6,12 +6,10 @@
 
 <%@include file="cabecalhoInicial.jsp"%>
 <%@include file="DBConn.jsp"%>
-
-<div class="btn-group3" style="float: right; padding-top: 5%">
+<div class="btn-group3" style="margin: 5% 0 0 73%">
     <a href="escolherSessao.jsp" class="a">
         <button class="btnCabecalho" style="padding: 25px 50px">Voltar</button>
     </a>
-</div>
 </div>
 </div>
 </header>
@@ -100,4 +98,4 @@
             </form> 
         </div>
 
-<%@include file="rodapeInicial.jsp"%>
+        <%@include file="rodapeInicial.jsp"%>

@@ -12,29 +12,29 @@
 <%@include file="../DBConn.jsp"%>
 
 <script>
-let delUserEmail = "";
-    
-function httpGet(theUrl) {
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-    xmlHttp.send( null );
-    return xmlHttp.responseText;
-}
+    let delUserEmail = "";
 
-function EnableDivModal(_email) {
-    delUserEmail = _email;
-    
-    document.getElementById("myModal").hidden = false;
-}
-function DisableDivModal() {
-    document.getElementById("myModal").hidden = true;
-}
-function ExcluirUsuario() {
-    httpGet("excluir-ok.jsp?requestEditEmail=" + delUserEmail);
-    
-    DisableDivModal();
-    location.reload();
-}
+    function httpGet(theUrl) {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", theUrl, false); // false for synchronous request
+        xmlHttp.send(null);
+        return xmlHttp.responseText;
+    }
+
+    function EnableDivModal(_email) {
+        delUserEmail = _email;
+
+        document.getElementById("myModal").hidden = false;
+    }
+    function DisableDivModal() {
+        document.getElementById("myModal").hidden = true;
+    }
+    function ExcluirUsuario() {
+        httpGet("excluir-ok.jsp?requestEditEmail=" + delUserEmail);
+
+        DisableDivModal();
+        location.reload();
+    }
 </script>
 
 <!-- The Modal -->
@@ -57,7 +57,17 @@ function ExcluirUsuario() {
     </div>
 </div>
 
-<div class="btn-groupA" style="float: right; padding-top: 5%">
+<div class="btn-groupA" style="margin: 5% 0 5% 43%">
+    <div class="btn-groupA" style="margin-top: 10%; margin-left: 95%">
+        <a href="../index.html?sair=ok" class="a">
+            <button class="btnAcoes">
+                <div id="logout" class="icon material-icons">logout</div>
+                <div class="mdl-tooltip mdl-tooltip--large" for="logout">
+                    Sair
+                </div>
+            </button>
+        </a>
+    </div>
     <a href="definirOrganizador.jsp" class="a">
         <button class="btnCabecalho" style="padding: 16px 5px">Definir professor <br> como organizador</button>
     </a>
@@ -69,8 +79,8 @@ function ExcluirUsuario() {
     </a>
 </div>
 </div>
-</div>
 </header>
+
 <main class="mdl-layout__content">
     <div class="mdl-layout__tab-panel is-active" id="overview">
         <section class="mdl-grid mdl-grid--no-spacing">

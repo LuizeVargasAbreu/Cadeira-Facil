@@ -15,11 +15,20 @@
 <%@include file="cabecalhoAdmin.jsp"%>
 <%@include file="../DBConn.jsp"%>
 
-<div class="btn-groupA" style="float: right; padding-top: 5%">
+<div class="btn-groupA" style="margin: 3% 0 0 64%">
+    <div class="btn-groupA" style="margin-left: 85%">
+        <a href="../index.html?sair=ok" class="a">
+            <button class="btnAcoes">
+                <div id="logout" class="icon material-icons">logout</div>
+                <div class="mdl-tooltip mdl-tooltip--large" for="logout">
+                    Sair
+                </div>
+            </button>
+        </a>
+    </div>
     <a href="listAdmin.jsp" class="a">
         <button class="btnCabecalho" style="padding: 25px 50px">Voltar</button>
     </a>
-</div>
 </div>
 </div>
 </header>
@@ -76,7 +85,9 @@
                             </div>
                             <div class="btn-groupA" style="float: right; margin-right: 1%">
                                 <button type="submit" class="btnAcoes"  style="padding: 25px 25px">Confirmar</button>
-                                <button type="reset" class="btnAcoes"  style="padding: 25px 25px">Cancelar</button>
+                                <a href="listAdmin.jsp" class="a">
+                                    <button type="button" class="btnAcoes"  style="padding: 25px 25px">Cancelar</button>
+                                </a>
                             </div>
                         </form>                    
                     </div>

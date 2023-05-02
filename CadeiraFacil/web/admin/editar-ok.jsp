@@ -31,7 +31,7 @@
         
        try
         {
-            msg = "Informa√ß√µes do usu√°rio alteradas com sucesso!";
+            msg = "InformaÁıes do usu·rio alteradas com sucesso!";
             String papelStr = "";
         
             if (papel.equals("administrador"))
@@ -47,7 +47,7 @@
         }
         catch(Exception ex)
         {
-            msg = "Erro ao alterar informa√ß√µes do usu√°rio.";
+            msg = "Erro ao alterar informaÁıes do usu·rio.";
         }
         
     }
@@ -63,25 +63,34 @@
     <!-- Modal content -->
     <div class="modal-content">
         <a href="listAdmin.jsp" class="a">
-            <span class="close" onclick="fecharModal()">√ó</span>
+            <span class="close" onclick="fecharModal()">&times;</span>
         </a>
         <div class="infosModal">
             <div class="centro">
                 <b><%=msg%></b>
             </div><br><br>
             <b>Nome:</b> <%=nome%><br><br>
-            <b>Matr√≠cula/SIAPE:</b> <%=matricula%><br><br>
+            <b>MatrÌ≠cula/SIAPE:</b> <%=matricula%><br><br>
             <b>E-mail:</b> <%=email%><br><br>
             <b>Papel:</b> <%=papel%><br><br>
         </div>
     </div>
 </div>
 
-<div class="btn-groupA" style="float: right; padding-top: 5%">
+<div class="btn-groupA" style="margin: 3% 0 0 64%">
+    <div class="btn-groupA" style="margin-left: 85%">
+        <a href="../index.html?sair=ok" class="a">
+            <button class="btnAcoes">
+                <div id="logout" class="icon material-icons">logout</div>
+                <div class="mdl-tooltip mdl-tooltip--large" for="logout">
+                    Sair
+                </div>
+            </button>
+        </a>
+    </div>
     <a href="listAdmin.jsp" class="a">
         <button class="btnCabecalho" style="padding: 25px 50px">Voltar</button>
     </a>
-</div>
 </div>
 </div>
 </header>
@@ -90,14 +99,14 @@
         <section class="mdl-grid mdl-grid--no-spacing">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
                 <div class="mdl-card__supporting-text">
-                    <h3>Editar usu√°rio</h3>
+                    <h3>Editar usu·rio</h3>
                     <div class="divCadastro">
                         <form action="cadastrar-ok.jsp" method="post">
                             <div class="mdl-cell--12-col">
                                 <label for="txtNome">Nome:</label>
                                 <input type="text" name="txtNome" value="<%=nome%>">
 
-                                <label for="txtMatricula">Matr√≠cula/SIAPE:</label>
+                                <label for="txtMatricula">MatrÌ≠cula/SIAPE:</label>
                                 <input type="text" name="txtMatricula" value="<%=matricula%>">
 
                                 <label for="txtEmail">E-mail:</label>

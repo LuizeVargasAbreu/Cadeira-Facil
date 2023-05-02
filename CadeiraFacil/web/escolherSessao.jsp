@@ -1,12 +1,11 @@
 <%@include file="cabecalhoInicial.jsp"%>
-<div class="btn-group3" style="float: right; padding-top: 5%">
+<div class="btn-group3" style="margin: 5% 0 0 65%">
     <a href="alterarSenha.jsp" class="a">
         <button class="btnCabecalho" style="padding: 25px 15px">Alterar senha</button>
     </a>
     <a href="index.html?sair=ok" class="a">
         <button class="btnCabecalho" style="padding: 25px 50px">Sair</button>
     </a>
-</div>
 </div>
 </div>
 </header>

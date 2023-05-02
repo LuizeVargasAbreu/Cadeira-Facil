@@ -1,18 +1,28 @@
 <%@include file="cabecalhoAluno.jsp"%>
-<div class="btn-groupA" style="float: right; padding-top: 5%">
-    <!--    <a href="listAdmin.jsp" class="a">
-            <button class="btnCabecalho" style="padding: 25px 22px">Ressubmeter</button>
+<!--    
+    <a href="listAdmin.jsp" class="a">
+        <button class="btnCabecalho" style="padding: 25px 22px">Ressubmeter</button>
+    </a>
+    <a href="listAdmin.jsp" class="a">
+        <button class="btnCabecalho" style="padding: 16px 36px">Visualizar <br> revisões</button>
+    </a>-->
+<div class="btn-groupA" style="margin: 6% 0 5% 61%">
+    <div class="btn-groupA" style="margin-top: 10%; margin-left: 95%">
+        <a href="../index.html?sair=ok" class="a">
+            <button class="btnAcoes">
+                <div id="logout" class="icon material-icons">logout</div>
+                <div class="mdl-tooltip mdl-tooltip--large" for="logout">
+                    Sair
+                </div>
+            </button>
         </a>
-        <a href="listAdmin.jsp" class="a">
-            <button class="btnCabecalho" style="padding: 16px 36px">Visualizar <br> revisões</button>
-        </a>-->
+    </div>
     <a href="alunoOpcoes.jsp" class="a">
         <button class="btnCabecalho" style="padding: 25px 50px">Alterar</button>
     </a>
     <a href="alunoOpcoes.jsp" class="a">
         <button class="btnCabecalho" style="padding: 25px 50px">Voltar</button>
     </a>
-</div>
 </div>
 </div>
 </header>

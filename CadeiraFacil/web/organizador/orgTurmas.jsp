@@ -11,15 +11,23 @@
 <%@include file="cabecalhoOrg.jsp"%>
 <%@include file="../DBConn.jsp"%>
 
-
-<div class="btn-groupA" style="float: right; padding-top: 5%">
+<div class="btn-groupA" style="margin: 6% 0 5% 52%">
+    <div class="btn-groupA" style="margin-top: 10%; margin-left: 95%">
+        <a href="../index.html?sair=ok" class="a">
+            <button class="btnAcoes">
+                <div id="logout" class="icon material-icons">logout</div>
+                <div class="mdl-tooltip mdl-tooltip--large" for="logout">
+                    Sair
+                </div>
+            </button>
+        </a>
+    </div>
     <a href="orgCriar.jsp" class="a">
         <button class="btnCabecalho" style="padding: 25px 30px">Criar turma</button>
     </a>
     <a href="../escolherSessao.jsp" class="a">
         <button class="btnCabecalho" style="padding: 25px 50px">Voltar</button>
     </a>
-</div>
 </div>
 </div>
 </header>
