@@ -32,7 +32,7 @@
                 <a href="alunoRealizar.jsp?turmaAno=<% out.print(request.getParameter("turmaAno")); %>" class="a">
                     <button class="btnOpcoes" style="padding: 50px 50px">Realizar submissão</button>
                 </a>
-                <a href="alunoSub.jsp?turmaAno=<% out.print(request.getParameter("turmaAno")); %>" class="a">
+                <a href="alunoSubRep.jsp?turmaAno=<% out.print(request.getParameter("turmaAno")); %>" class="a">
                     <button class="btnOpcoes" style="padding: 50px 41px">Visualizar submissão</button>
                 </a>
             </div>

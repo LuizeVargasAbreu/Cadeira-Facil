@@ -56,7 +56,7 @@ public class FileUploadSubmissao extends HttpServlet {
         DBConn.makeQuery(String.format("INSERT INTO Submissao VALUES ('%s','%s','wait','%s',NOW(),'%s','null','%s','%s','%s')",
                 titulo, coorientador, resumo, finalFileName, orientador, turmaAno, aluno));
         
-        response.sendRedirect("organizador/alunoSub.jsp");
+        response.sendRedirect("aluno/alunoSub.jsp");
     }
     
     @Override

@@ -24,8 +24,8 @@
             </button>
         </a>
     </div>
-    <a href="alunoAlterar.jsp?turmaAno=<% out.print(request.getParameter("turmaAno")); %>" class="a">
-        <button class="btnCabecalho" style="padding: 25px 50px">Alterar</button>
+    <a href="alunoRevisoes.jsp" class="a">
+        <button class="btnCabecalho" style="padding: 16px 36px">Visualizar <br> revisões</button>
     </a>
     <a href="alunoOpcoes.jsp" class="a">
         <button class="btnCabecalho" style="padding: 25px 50px">Voltar</button>
@@ -40,7 +40,7 @@
                 <div class="mdl-card__supporting-text">
                     <h3>Minha submissão</h3>
                     <div class="mdl-cell--12-col">
-                        <input type="text" name="status" value="Status" style="width: 170px; color: #f5f5f5; margin-left: 88%; text-align: center; padding: 10px 30px" readonly>
+                        <input type="text" name="status" value="Aprovada" style="width: 170px; color: #04CE00; margin-left: 88%; text-align: center; padding: 10px 30px" readonly>
                     </div>
                     <div class="mdl-cell--12-col">
                         <%
