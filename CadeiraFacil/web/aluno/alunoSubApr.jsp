@@ -24,10 +24,10 @@
             </button>
         </a>
     </div>
-    <a href="alunoRevisoes.jsp" class="a">
+    <a href="alunoRevisoes.jsp?turmaAno=<% out.print(request.getParameter("turmaAno")); %>" class="a">
         <button class="btnCabecalho" style="padding: 16px 36px">Visualizar <br> revisões</button>
     </a>
-    <a href="alunoOpcoes.jsp" class="a">
+    <a href="alunoOpcoes.jsp?turmaAno=<% out.print(request.getParameter("turmaAno")); %>" class="a">
         <button class="btnCabecalho" style="padding: 25px 50px">Voltar</button>
     </a>
 </div>

@@ -24,7 +24,7 @@
             </button>
         </a>
     </div>
-    <a href="alunoOpcoes.jsp" class="a">
+    <a href="alunoOpcoes.jsp?turmaAno=<% out.print(request.getParameter("turmaAno")); %>" class="a">
         <button class="btnCabecalho" style="padding: 25px 50px">Voltar</button>
     </a>
 </div>
@@ -69,7 +69,7 @@
                             </div>
                             <div class="btn-groupA" style="float: right; margin-right: 1%">
                                 <button type="submit" class="btnAcoes"  style="padding: 25px 25px">Confirmar</button>
-                                <a href="alunoOpcoes.jsp" class="a">
+                                <a href="alunoOpcoes.jsp?turmaAno=<% out.print(request.getParameter("turmaAno")); %>" class="a">
                                     <button type="button" class="btnAcoes"  style="padding: 25px 25px">Cancelar</button>
                                 </a>
                             </div>

@@ -22,7 +22,7 @@
             </button>
         </a>
     </div>
-    <a href="profOpcoes.jsp" class="a">
+    <a href="profOpcoes.jsp?turmaAno=<% out.print(request.getParameter("turmaAno")); %>" class="a">
         <button class="btnCabecalho" style="padding: 25px 50px">Voltar</button>
     </a>
 </div>
