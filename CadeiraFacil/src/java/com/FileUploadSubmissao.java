@@ -14,6 +14,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Date;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @WebServlet("/FileUploadSubmissao")
 @MultipartConfig(fileSizeThreshold=1024*1024*10, 	// 10 MB 
@@ -35,28 +38,47 @@ public class FileUploadSubmissao extends HttpServlet {
         String alunoNome = request.getParameter("alunoNome");
         String turmaAno = request.getParameter("turmaAno");
         
-        String path = PATH_LOCATION;
-        String turmaPath = turmaAno;
-        
-        File fileSaveDir = new File(path);
-        if (!fileSaveDir.exists()) {
-            fileSaveDir.mkdir();
+        if (request.getParameter("alterar").equals("1")) {
+            if (request.getPart("arquivo").getSize() > 0) {
+                ResultSet rs = DBConn.makeQuery(String.format("SELECT arquivo FROM Submissao WHERE fk_turma_anosemestre='%s' AND fk_aluno_email='%s'", turmaAno, aluno));
+
+                try {
+                    if (rs != null && rs.next()) {
+                        Part part = request.getPart("arquivo");
+                        part.write(turmaAno + "\\" + rs.getString("arquivo"));
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(FileUploadSubmissao.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+            DBConn.makeQuery(String.format("UPDATE Submissao SET Titulo='%s', Coorientador='%s', Resumo='%s' WHERE fk_turma_anosemestre='%s' AND fk_aluno_email='%s'",
+                    titulo, coorientador, resumo, turmaAno, aluno));
+        }
+        else {
+            String path = PATH_LOCATION;
+            String turmaPath = turmaAno;
+
+            File fileSaveDir = new File(path);
+            if (!fileSaveDir.exists()) {
+                fileSaveDir.mkdir();
+            }
+
+            File fileSaveDir2 = new File(path + turmaPath);
+            if (!fileSaveDir2.exists()) {
+                fileSaveDir2.mkdir();
+            }
+
+            String finalFileName = String.format("%s_Sub1_%d.pdf", alunoNome.split(" ")[0], new Date().getTime());
+
+            Part part = request.getPart("arquivo");
+            part.write(turmaPath + "\\" + finalFileName);
+
+            DBConn.makeQuery(String.format("INSERT INTO Submissao VALUES ('%s','%s','wait','%s',NOW(),'%s','null','%s','%s','%s')",
+                    titulo, coorientador, resumo, finalFileName, orientador, turmaAno, aluno));
         }
         
-        File fileSaveDir2 = new File(path + turmaPath);
-        if (!fileSaveDir2.exists()) {
-            fileSaveDir2.mkdir();
-        }
-        
-        String finalFileName = String.format("%s_Sub1_%d.pdf", alunoNome.split(" ")[0], new Date().getTime());
-        
-        Part part = request.getPart("arquivo");
-        part.write(turmaPath + "\\" + finalFileName);
-        
-        DBConn.makeQuery(String.format("INSERT INTO Submissao VALUES ('%s','%s','wait','%s',NOW(),'%s','null','%s','%s','%s')",
-                titulo, coorientador, resumo, finalFileName, orientador, turmaAno, aluno));
-        
-        response.sendRedirect("aluno/alunoSub.jsp");
+        response.sendRedirect(String.format("aluno/alunoSub.jsp?turmaAno=%s", turmaAno));
     }
     
     @Override

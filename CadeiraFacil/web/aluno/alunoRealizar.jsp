@@ -65,6 +65,7 @@
                                 <input type="text" required name="aluno" value=<% out.print(sessionLogin); %> hidden>
                                 <input type="text" required name="alunoNome" value=<% out.print(sessionNome); %> hidden>
                                 <input type="text" required name="turmaAno" value=<% out.print(request.getParameter("turmaAno")); %> hidden>
+                                <input type="text" required name="alterar" value="0" hidden>
 
                             </div>
                             <div class="btn-groupA" style="float: right; margin-right: 1%">

@@ -37,7 +37,7 @@
                 <div class="mdl-card__supporting-text">
                     <h3>Alterar submissão</h3>
                     <div class="divCadastro">
-                        <form action="#" method="post" enctype="multipart/form-data">
+                        <form action="../FileUploadSubmissao" method="post" enctype="multipart/form-data">
                             <div class="mdl-cell--12-col">
                                 <%
                                     ResultSet rs = makeQuery(String.format("SELECT * FROM Submissao WHERE fk_Aluno_Email='%s' AND fk_Turma_AnoSemestre='%s'", sessionLogin, request.getParameter("turmaAno")));
@@ -56,12 +56,12 @@
                                         out.println(String.format("<input type=\"text\" name=\"resumo\" value=\"%s\">", rs.getString("Resumo")));
 
                                         out.println(String.format("<label for=\"arquivo\">Arquivo:</label><br>"));
-                                        out.println(String.format("<input type=\"file\" name=\"fileName\" style=\"width: auto\" value=\"%s\">", rs.getString("Arquivo")));
+                                        out.println(String.format("<input type=\"file\" name=\"arquivo\" style=\"width: auto\" accept=\".pdf\">"));
                                 
-                                        out.println(String.format("<form action=\"../FileUploadSubmissao\" method=\"get\" enctype=\"multipart/form-data\">"));
                                         out.println(String.format("<input type=\"text\" name=\"turmaAno\" value=\"%s\" hidden>", request.getParameter("turmaAno")));
-                                        out.println(String.format("<input type=\"text\" name=\"fileName\" value=\"%s\" hidden>", rs.getString("Arquivo")));
-                                        //out.println(String.format("<button type=\"submit\" class=\"btnAcoes\"  style=\"padding: 25px 25px\">Baixar</button></form>"));
+                                        out.println(String.format("<input type=\"text\" name=\"aluno\" value=\"%s\" hidden>", sessionLogin));
+                                        out.println(String.format("<input type=\"text\" name=\"alunoNome\" value=\"%s\" hidden>", sessionNome));
+                                        out.println(String.format("<input type=\"text\" name=\"alterar\" value=\"1\" hidden>"));
                                     }
                                 %>
                             </div>
