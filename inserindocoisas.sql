@@ -40,7 +40,9 @@ INSERT INTO Revisao
 
 INSERT INTO Revisor_Submissao
     VALUES('larissa@inf.ufpel.edu.br', '2022/1', 'lvabreu@inf.ufpel.edu.br');
+    INSERT INTO Revisor_Submissao
     VALUES('Toto@inf.ufpel.edu.br', '2022/1', 'ymartins@inf.ufpel.edu.br');
+    INSERT INTO Revisor_Submissao
      VALUES('Neto@inf.ufpel.edu.br', '2022/1', 'atralberoni@inf.ufpel.edu.br');
     
     
