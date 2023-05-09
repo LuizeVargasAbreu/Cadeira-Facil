@@ -20,12 +20,11 @@ INSERT INTO Submissao
 	VALUES ('Testando a Submissao do Projeto de DS', '', 'APROVADA', 
 			'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 
 			'27/04/2023/', 'TestandoSubmissao_ViniciusCruz.pdf', '', 'toto@gmail.com', '2022/1', 'viniciuscruz@inf.ufpel.edu.br');
-			'
-
+			VALUES ('teste 2',' ' , 'APROVADA','inteligencia artificial para melhoria em jogos ','12/05/2023' , 'Tcc_1_Yago.pdf', '2022/2', 'ymartins@inf.ufpel.edu.br');
 INSERT INTO Aluno_Turma
 	VALUES ('2022/1', 'lvabreu@inf.ufpel.edu.br');
 INSERT INTO Aluno_Turma
-	VALUES ('2022/2', 'Ymartins@inf.ufpel.edu.br');
+	VALUES ('2022/2', 'ymartins@inf.ufpel.edu.br');
 INSERT INTO Aluno_Turma
 	VALUES ("2022/1', 'atralberoni@inf.ufpel.edu.br');
 	
