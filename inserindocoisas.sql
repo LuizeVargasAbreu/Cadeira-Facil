@@ -1,3 +1,4 @@
+
 SELECT * FROM Usuario
 SELECT * FROM Aluno_Turma
 SELECT * FROM Revisao
@@ -16,6 +17,13 @@ INSERT INTO Submissao
 			'27/04/2023/', 'TestandoSubmissao_ViniciusCruz.pdf', '', 'toto@gmail.com', '2022/1', 'viniciuscruz@inf.ufpel.edu.br')
 
 INSERT INTO Aluno_Turma
-	VALUES ('2022/2', 'lvabreu@inf.ufpel.edu.br')
+	VALUES ('2022/1', 'lvabreu@inf.ufpel.edu.br')
 
+INSERT INTO Turma
+    VALUES('2022/1', '{1/12/2042/, 2/12/2042/}', '{10/3/2043/, 20/3/2043}', '{10/12/2042/, 15/12/2042/}', '{10/4/2043/, 15/4/2043}', 'larissa@inf.ufpel.edu.br')
 
+INSERT INTO Revisao
+    VALUES('{0,1,2,3,4,5}', "{'achei bom', 'achei bom', 'achei bom', 'achei bom'}", '10/10/2022/', 'lisane@inf.ufpel.edu.br', '2022/1','lvabreu@inf.ufpel.edu.br', 0)
+
+INSERT INTO Revisor_Submissao
+    VALUES('larissa@inf.ufpel.edu.br', '2022/1', 'lvabreu@inf.ufpel.edu.br')
