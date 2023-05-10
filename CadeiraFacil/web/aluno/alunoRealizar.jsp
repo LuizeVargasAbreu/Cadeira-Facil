@@ -7,7 +7,26 @@
     if (!sessionPapeis[3])
         throw new ServletException("Aluno Only");
         
+    String turmaAno = request.getParameter("turmaAno");
     String sessionNome = (String) session.getAttribute("usuarioNome");
+    
+    ResultSet rs2 = makeQuery(String.format("SELECT prazorev,prazosub FROM Turma WHERE AnoSemestre='%s'", turmaAno));
+
+    if (rs2 != null && rs2.next()) {
+        java.sql.Date[] rev = (java.sql.Date[])rs2.getArray("prazorev").getArray();
+        java.sql.Date[] sub = (java.sql.Date[])rs2.getArray("prazosub").getArray();
+
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        Date now = new Date();
+
+        Date p11 = df.parse(rev[0].toString());
+        Date p12 = df.parse(rev[1].toString());
+        Date p21 = df.parse(sub[0].toString());
+        Date p22 = df.parse(sub[1].toString());
+
+        if (!((p11.compareTo(now) < 0 && p12.compareTo(now) > 0) || (p21.compareTo(now) < 0 && p22.compareTo(now) > 0)))
+            throw new ServletException("Fora do Prazo");
+    }
 %>
 
 <%@include file="cabecalhoAluno.jsp"%>

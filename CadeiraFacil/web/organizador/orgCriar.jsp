@@ -37,7 +37,15 @@
                         <form action="../FileUploadCsv" method="post" enctype="multipart/form-data">
                             <div class="mdl-cell--12-col">
                                 <label for="anoSemestre">Ano/Semestre:</label>
-                                <input type="text" required name="anoSemestre">
+                                <input type="text" required name="anoSemestre" placeholder="aaaass">
+                                <br>
+                                <label for="prazo1">Prazo 1:</label>
+                                <input type="text" required name="prazo11" placeholder="dd/mm/aaaa">
+                                <input type="text" required name="prazo12" placeholder="dd/mm/aaaa">
+                                <br>
+                                <label for="prazo2">Prazo 2:</label>
+                                <input type="text" required name="prazo21" placeholder="dd/mm/aaaa">
+                                <input type="text" required name="prazo22" placeholder="dd/mm/aaaa">
                                 <br>
                                 <label for="csvAlunos">CSV Alunos:</label>
                                 <br>
