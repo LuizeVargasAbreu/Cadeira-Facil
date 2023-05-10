@@ -38,7 +38,7 @@
                 <a href="profOrientacoes.jsp?turmaAno=<% out.print(request.getParameter("turmaAno")); %>" class="a">
                     <button class="btnOpcoes" style="padding: 50px 50px;">Submissões orientadas</button>
                 </a>             
-                <a href="index.html?sair=ok" class="a">
+                <a href="profRevisoes.jsp?turmaAno=<% out.print(request.getParameter("turmaAno")); %>"" class="a">
                     <button class="btnOpcoes" style="padding: 50px 120px;">Revisões</button>
                 </a>
             </div>

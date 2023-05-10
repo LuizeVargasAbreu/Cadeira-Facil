@@ -4,17 +4,15 @@
         throw new ServletException("Invalid Login");
         
     Boolean[] sessionPapeis = (Boolean[]) session.getAttribute("usuarioPapeis");
-    if (!sessionPapeis[3])
-        throw new ServletException("Aluno Only");
-        
-    String sessionNome = (String) session.getAttribute("usuarioNome");
+    if (!sessionPapeis[2])
+        throw new ServletException("Prof Only");
 %>
 
-<%@include file="cabecalhoAluno.jsp"%>
+<%@include file="cabecalhoProf.jsp"%>
 <%@include file="../DBConn.jsp"%>
 
-<div class="btn-groupA" style="margin: 6% 0 5% 61%">
-    <div class="btn-groupA" style="margin-top: 10%; margin-left: 95%">
+<div class="btn-groupA" style="margin: 3% 0 0 67%">
+    <div class="btn-groupA" style="margin-left: 85%">
         <a href="../index.html?sair=ok" class="a">
             <button class="btnAcoes">
                 <div id="logout" class="icon material-icons">logout</div>
@@ -24,27 +22,25 @@
             </button>
         </a>
     </div>
-    <a href="alunoAlterar.jsp?turmaAno=<% out.print(request.getParameter("turmaAno")); %>" class="a">
-        <button class="btnCabecalho" style="padding: 25px 50px">Alterar</button>
-    </a>
-    <a href="alunoOpcoes.jsp?turmaAno=<% out.print(request.getParameter("turmaAno")); %>" class="a">
+    <a href="profOrientacoes.jsp?turmaAno=<% out.print(request.getParameter("turmaAno")); %>" class="a">
         <button class="btnCabecalho" style="padding: 25px 50px">Voltar</button>
     </a>
 </div>
 </div>
 </header>
+
 <main class="mdl-layout__content">
     <div class="mdl-layout__tab-panel is-active" id="overview">
         <section class="mdl-grid mdl-grid--no-spacing">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
                 <div class="mdl-card__supporting-text">
-                    <h3>Minha submissão</h3>
+                    <h3>Submissão orientada</h3>
                     <div class="mdl-cell--12-col">
-                        <input type="text" name="status" value="Pendente" style="width: 170px; color: #f5f5f5; margin-left: 88%; text-align: center; padding: 10px 30px" readonly>
+                        <input type="text" name="status" value="Reprovada" style="width: 170px; color: #FF0000; margin-left: 88%; text-align: center; padding: 10px 30px" readonly>
                     </div>
                     <div class="mdl-cell--12-col">
                         <%
-                            ResultSet rs = makeQuery(String.format("SELECT * FROM Submissao WHERE fk_Aluno_Email='%s' AND fk_Turma_AnoSemestre='%s'", sessionLogin, request.getParameter("turmaAno")));
+                            ResultSet rs = makeQuery(String.format("SELECT * FROM Submissao WHERE fk_Orientador_Email='%s' AND fk_Turma_AnoSemestre='%s'", sessionLogin, request.getParameter("turmaAno")));
 
                             if (rs != null && rs.next()) {
                                 out.println(String.format("<label for=\"titulo\">Título:</label><br>"));

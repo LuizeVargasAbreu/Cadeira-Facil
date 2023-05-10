@@ -44,7 +44,7 @@
                         </thead>
                         <tbody>
                             <%
-                                ResultSet rs = makeQuery(String.format("SELECT fk_aluno_email FROM revisor_submissao WHERE fk_Revisor_Email='%s' AND fk_turma_anosemestre='%s'", sessionLogin, request.getParameter("turmaAno")));
+                                ResultSet rs = makeQuery(String.format("SELECT fk_aluno_email FROM Submissao WHERE fk_Orientador_Email='%s' AND fk_turma_anosemestre='%s'", sessionLogin, request.getParameter("turmaAno")));
                                 
                                 if (rs != null && rs.next()) {
                                     
@@ -58,8 +58,31 @@
                                         
                                             out.println(String.format("<tr class=\"trHover\"><td>%s</td><td>%s</td>", rs3.getString("Nome"), rs2.getString("Titulo")));
                                             out.println(String.format("<td style=\"background-color: white\"> <div class=\"btn-groupA\">"));
+        
+                                            ResultSet rs4 = makeQuery(String.format("SELECT status FROM Submissao WHERE fk_turma_anosemestre='%s' AND fk_aluno_email='%s'", request.getParameter("turmaAno"), rs.getString("fk_aluno_email")));
+                    
+                                            int count = 0;
+                                            boolean aprov = true;
+                                            boolean wait = false;
 
-                                            out.println(String.format("<a href=\"profSubOrient.jsp?turmaAno=%s&alunoEmail=%s\" class=\"a\"><button class=\"btnAcoes\"  style=\"padding: 10px 15px\">Abrir</button></a>", request.getParameter("turmaAno"), rs.getArray("fk_Aluno_Email")));
+                                            while (rs4 != null && rs4.next()) {
+                                                if (rs4.getString("status").equals("wait")) {
+                                                    wait = true;
+                                                }
+                                                else if (rs4.getString("status").equals("repr")) {
+                                                    aprov = false;
+                                                }
+
+                                                count++;
+                                            }
+
+                                            if (count == 0 || wait)
+                                                out.println(String.format("<a href=\"profSubOrient.jsp?turmaAno=%s&alunoEmail=%s\" class=\"a\"><button class=\"btnAcoes\"  style=\"padding: 10px 15px\">Abrir</button></a>", request.getParameter("turmaAno"), rs.getArray("fk_Aluno_Email")));
+                                            else if (!aprov)
+                                                out.println(String.format("<a href=\"profSubOrientRep.jsp?turmaAno=%s&alunoEmail=%s\" class=\"a\"><button class=\"btnAcoes\"  style=\"padding: 10px 15px\">Abrir</button></a>", request.getParameter("turmaAno"), rs.getArray("fk_Aluno_Email")));
+                                            else
+                                                out.println(String.format("<a href=\"profSubOrientApr.jsp?turmaAno=%s&alunoEmail=%s\" class=\"btnAcoes\"  style=\"padding: 10px 15px\">Abrir</button></a>", request.getParameter("turmaAno"), rs.getArray("fk_Aluno_Email")));
+                                            
                                             out.println(String.format("</div> </td> </tr>"));
                                         
                                         }

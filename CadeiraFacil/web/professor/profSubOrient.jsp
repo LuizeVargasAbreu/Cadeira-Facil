@@ -36,33 +36,32 @@
                 <div class="mdl-card__supporting-text">
                     <h3>Submissão orientada</h3>
                     <div class="mdl-cell--12-col">
-                        <input type="text" name="status" value="Status" style="width: 150px; color: #fefefe; float: right; text-align: center; padding: 10px 30px" readonly>
+                        <input type="text" name="status" value="Pendente" style="width: 170px; color: #f5f5f5; margin-left: 88%; text-align: center; padding: 10px 30px" readonly>
                     </div>
-                    <br>
                     <div class="mdl-cell--12-col">
                         <%
-                            ResultSet rs = makeQuery(String.format("SELECT * FROM Submissao WHERE fk_Aluno_Email='%s' AND fk_Turma_AnoSemestre='%s'", sessionLogin, request.getParameter("turmaAno")));
+                            ResultSet rs = makeQuery(String.format("SELECT * FROM Submissao WHERE fk_Orientador_Email='%s' AND fk_Turma_AnoSemestre='%s'", sessionLogin, request.getParameter("turmaAno")));
 
                             if (rs != null && rs.next()) {
                                 out.println(String.format("<label for=\"titulo\">Título:</label><br>"));
-                                out.println(String.format("<input type=\"text\" name=\"titulo\" value=\"%s\" style=\"color: #fefefe\" readonly>", rs.getString("Titulo")));
+                                out.println(String.format("<input type=\"text\" name=\"titulo\" value=\"%s\" readonly>", rs.getString("Titulo")));
 
                                 out.println(String.format("<label for=\"orientador\">Orientador:</label>"));
-                                out.println(String.format("<input type=\"text\" name=\"orientador\" value=\"%s\" style=\"color: #fefefe\" readonly>", rs.getString("fk_Orientador_Email")));
+                                out.println(String.format("<input type=\"text\" name=\"orientador\" value=\"%s\" readonly>", rs.getString("fk_Orientador_Email")));
 
                                 out.println(String.format("<label for=\"coorientador\">Coorientador:</label><br>"));
-                                out.println(String.format("<input type=\"text\" name=\"coorientador\" value=\"%s\" style=\"color: #fefefe\" readonly>", rs.getString("Coorientador")));
+                                out.println(String.format("<input type=\"text\" name=\"coorientador\" value=\"%s\" readonly>", rs.getString("Coorientador")));
 
                                 out.println(String.format("<label for=\"resumo\">Resumo:</label><br>"));
-                                out.println(String.format("<input type=\"text\" name=\"resumo\" value=\"%s\" style=\"color: #fefefe\" readonly>", rs.getString("Resumo")));
+                                out.println(String.format("<input type=\"text\" name=\"resumo\" value=\"%s\" readonly>", rs.getString("Resumo")));
 
                                 out.println(String.format("<label for=\"arquivo\">Arquivo:</label><br>"));
-                                out.println(String.format("<input type=\"text\" name=\"fileName\" value=\"%s\" style=\"color: #fefefe\" readonly>", rs.getString("Arquivo")));
+                                out.println(String.format("<input type=\"text\" name=\"fileName\" value=\"%s\" readonly>", rs.getString("Arquivo")));
                                 
                                 out.println(String.format("<form action=\"../FileUploadSubmissao\" method=\"get\" enctype=\"multipart/form-data\">"));
                                 out.println(String.format("<input type=\"text\" name=\"turmaAno\" value=\"%s\" hidden>", request.getParameter("turmaAno")));
                                 out.println(String.format("<input type=\"text\" name=\"fileName\" value=\"%s\" hidden>", rs.getString("Arquivo")));
-                                out.println(String.format("<button type=\"submit\" class=\"btnAcoes\"  style=\"padding: 25px 25px\">Baixar</button></form>"));
+                                //out.println(String.format("<button type=\"submit\" class=\"btnAcoes\"  style=\"padding: 25px 25px\">Baixar</button></form>"));
                             }
                         %>
                     </div>

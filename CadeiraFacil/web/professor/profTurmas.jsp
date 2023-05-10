@@ -44,7 +44,8 @@
                         </thead>
                         <tbody>
                             <%
-                                ResultSet rs = makeQuery(String.format("SELECT DISTINCT fk_Turma_AnoSemestre FROM revisor_submissao WHERE fk_Revisor_Email='%s'", sessionLogin));
+                                //ResultSet rs = makeQuery(String.format("SELECT DISTINCT fk_Turma_AnoSemestre FROM revisor_submissao WHERE fk_Revisor_Email='%s'", sessionLogin));
+                                ResultSet rs = makeQuery(String.format("SELECT DISTINCT fk_Turma_AnoSemestre FROM submissao WHERE fk_Orientador_Email='%s'", sessionLogin));
                                 
                                 while (rs != null && rs.next()) {
                                                
