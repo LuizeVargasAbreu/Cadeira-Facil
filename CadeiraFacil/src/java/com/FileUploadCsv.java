@@ -29,8 +29,8 @@ public class FileUploadCsv extends HttpServlet {
         String prazo21 = request.getParameter("prazo21");
         String prazo22 = request.getParameter("prazo22");
         
-        DBConn.makeQuery(String.format("INSERT INTO Turma VALUES ('%s', '{%s,%s}', '{%s,%s}', '%s')",
-                anoSemestre, prazo11, prazo12, prazo21, prazo22, organizador));
+        DBConn.makeQuery(String.format("INSERT INTO Turma VALUES ('%s', '{%s,%s}', '{%s,%s}', '{%s,%s}', '{%s,%s}', '%s')",
+                anoSemestre, prazo11, prazo12, prazo11, prazo12,prazo21, prazo22, prazo21, prazo22,organizador));
         
         Part part = request.getPart("csvAlunos");
         InputStreamReader isr = new InputStreamReader(part.getInputStream());

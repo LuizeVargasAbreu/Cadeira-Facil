@@ -1,3 +1,7 @@
+
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
+
 <%
     String sessionLogin = (String) session.getAttribute("usuarioAdmin");
     if (sessionLogin == null)

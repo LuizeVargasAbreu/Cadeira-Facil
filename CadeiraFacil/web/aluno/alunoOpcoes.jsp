@@ -77,7 +77,7 @@
                     }
                     
                     if (count == 0)
-                        out.println(String.format("<button class=\"btnOpcoes\" style=\"padding: 50px 41px background-color:#808080\" disabled>Visualizar submissão</button></a>"));
+                        out.println(String.format("<a href=\"#\" class=\"a\"><button class=\"btnOpcoes\" style=\"padding: 50px 41px; background-color:#808080\" disabled>Visualizar submissão</button></a>"));
                     else if (wait)
                         out.println(String.format("<a href=\"alunoSub.jsp?turmaAno=%s\" class=\"a\"><button class=\"btnOpcoes\" style=\"padding: 50px 41px\">Visualizar submissão</button></a>", request.getParameter("turmaAno")));
                     else if (!aprov)

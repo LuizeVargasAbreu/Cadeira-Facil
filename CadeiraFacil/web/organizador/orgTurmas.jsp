@@ -4,8 +4,8 @@
         throw new ServletException("Invalid Login");
         
     Boolean[] sessionPapeis = (Boolean[]) session.getAttribute("usuarioPapeis");
-    if (!sessionPapeis[0])
-        throw new ServletException("Admin Only");
+    if (!sessionPapeis[1])
+        throw new ServletException("Organizador Only");
 %>
 
 <%@include file="cabecalhoOrg.jsp"%>

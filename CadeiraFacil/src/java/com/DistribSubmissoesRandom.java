@@ -20,7 +20,11 @@ import java.util.logging.Logger;
 public class DistribSubmissoesRandom extends HttpServlet {
     
     private int distribSubmissoes(List<Map.Entry<String, Integer>> v, Random gen, int revMaxCount) {
-        int rand = (gen.nextInt() % v.size());
+        int _rand = gen.nextInt();
+        if (_rand < 0)
+            _rand = -_rand;
+        
+        int rand = (_rand % v.size());
 
         for (int i = rand, c = 0; c < v.size(); ++c) {
             if (i == v.size())
@@ -84,5 +88,7 @@ public class DistribSubmissoesRandom extends HttpServlet {
                 }
             }
         }
+        
+        response.sendRedirect(String.format("organizador/orgOpcoes.jsp?turmaAno=%s", turmaAno));
     }
 }
