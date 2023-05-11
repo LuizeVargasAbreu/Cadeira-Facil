@@ -77,7 +77,7 @@
                                             }
 
                                             if (count == 0 || wait)
-                                                out.println(String.format("<a href=\"profSubOrient.jsp?turmaAno=%s&alunoEmail=%s\" class=\"a\"><button class=\"btnAcoes\"  style=\"padding: 10px 15px\">Abrir</button></a>", request.getParameter("turmaAno"), rs.getArray("fk_Aluno_Email")));
+                                                out.println(String.format("<a href=\"#\" class=\"a\"><button class=\"btnAcoes\"  style=\"padding: 10px 15px; background-color:#808080\">Abrir</button></a>"));
                                             else if (!aprov)
                                                 out.println(String.format("<a href=\"profSubOrientRep.jsp?turmaAno=%s&alunoEmail=%s\" class=\"a\"><button class=\"btnAcoes\"  style=\"padding: 10px 15px\">Abrir</button></a>", request.getParameter("turmaAno"), rs.getArray("fk_Aluno_Email")));
                                             else

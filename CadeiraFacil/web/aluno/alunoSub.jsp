@@ -8,10 +8,13 @@
         throw new ServletException("Aluno Only");
         
     String sessionNome = (String) session.getAttribute("usuarioNome");
+    String turmaAno = request.getParameter("turmaAno");
 %>
 
 <%@include file="cabecalhoAluno.jsp"%>
 <%@include file="../DBConn.jsp"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 
 <div class="btn-groupA" style="margin: 6% 0 5% 61%">
     <div class="btn-groupA" style="margin-top: 10%; margin-left: 95%">
@@ -24,9 +27,31 @@
             </button>
         </a>
     </div>
-    <a href="alunoAlterar.jsp?turmaAno=<% out.print(request.getParameter("turmaAno")); %>" class="a">
-        <button class="btnCabecalho" style="padding: 25px 50px">Alterar</button>
-    </a>
+    <%
+        ResultSet rs2 = makeQuery(String.format("SELECT prazorev,prazosub FROM Turma WHERE AnoSemestre='%s'", turmaAno));
+
+        if (rs2 != null && rs2.next()) {
+            java.sql.Date[] rev = (java.sql.Date[])rs2.getArray("prazorev").getArray();
+            java.sql.Date[] sub = (java.sql.Date[])rs2.getArray("prazosub").getArray();
+
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            Date now = new Date();
+
+            Date p11 = df.parse(rev[0].toString());
+            Date p12 = df.parse(rev[1].toString());
+            Date p21 = df.parse(sub[0].toString());
+            Date p22 = df.parse(sub[1].toString());
+            
+            if ((p11.compareTo(now) < 0 && p12.compareTo(now) > 0) || (p21.compareTo(now) < 0 && p22.compareTo(now) > 0)) {
+                out.print(String.format("<a href=\"alunoAlterar.jsp?turmaAno=%s\" class=\"a\">", turmaAno));
+                out.print("<button class=\"btnCabecalho\" style=\"padding: 25px 50px\">Alterar</button></a>");
+            }
+            else {
+                out.print(String.format("<a href=\"alunoAlterar.jsp?turmaAno=%s\" class=\"a\">", turmaAno));
+                out.print("<button class=\"btnCabecalho\" style=\"padding: 25px 50px; background-color:#808080\" disabled>Alterar</button></a>");
+            }
+        }
+    %>
     <a href="alunoOpcoes.jsp?turmaAno=<% out.print(request.getParameter("turmaAno")); %>" class="a">
         <button class="btnCabecalho" style="padding: 25px 50px">Voltar</button>
     </a>
@@ -60,7 +85,11 @@
                                 out.println(String.format("<input type=\"text\" name=\"resumo\" value=\"%s\" readonly>", rs.getString("Resumo")));
 
                                 out.println(String.format("<label for=\"arquivo\">Arquivo:</label><br>"));
-                                out.println(String.format("<input type=\"text\" name=\"fileName\" value=\"%s\" readonly>", rs.getString("Arquivo")));
+                                
+                                if (rs.getString("ArquivoRessub") == null || rs.getString("ArquivoRessub").isEmpty())
+                                    out.println(String.format("<input type=\"text\" name=\"fileName\" value=\"%s\" readonly>", rs.getString("Arquivo")));
+                                else
+                                    out.println(String.format("<input type=\"text\" name=\"fileName\" value=\"%s\" readonly>", rs.getString("ArquivoRessub")));
                                 
                                 out.println(String.format("<form action=\"../FileUploadSubmissao\" method=\"get\" enctype=\"multipart/form-data\">"));
                                 out.println(String.format("<input type=\"text\" name=\"turmaAno\" value=\"%s\" hidden>", request.getParameter("turmaAno")));

@@ -63,7 +63,11 @@
                                 out.println(String.format("<input type=\"text\" name=\"resumo\" value=\"%s\" readonly>", rs.getString("Resumo")));
 
                                 out.println(String.format("<label for=\"arquivo\">Arquivo:</label><br>"));
-                                out.println(String.format("<input type=\"text\" name=\"fileName\" value=\"%s\" readonly>", rs.getString("Arquivo")));
+                                
+                                if (rs.getString("ArquivoRessub") == null || rs.getString("ArquivoRessub").isEmpty())
+                                    out.println(String.format("<input type=\"text\" name=\"fileName\" value=\"%s\" readonly>", rs.getString("Arquivo")));
+                                else
+                                    out.println(String.format("<input type=\"text\" name=\"fileName\" value=\"%s\" readonly>", rs.getString("ArquivoRessub")));
                                 
                                 out.println(String.format("<form action=\"../FileUploadSubmissao\" method=\"get\" enctype=\"multipart/form-data\">"));
                                 out.println(String.format("<input type=\"text\" name=\"turmaAno\" value=\"%s\" hidden>", request.getParameter("turmaAno")));

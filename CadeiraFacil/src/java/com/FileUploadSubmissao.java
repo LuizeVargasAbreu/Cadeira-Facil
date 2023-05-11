@@ -68,14 +68,24 @@ public class FileUploadSubmissao extends HttpServlet {
             if (!fileSaveDir2.exists()) {
                 fileSaveDir2.mkdir();
             }
+            
+            if (request.getParameter("resub").equals("1")) {
+                String finalFileName = String.format("%s_Sub2_%d.pdf", alunoNome.split(" ")[0], new Date().getTime());
 
-            String finalFileName = String.format("%s_Sub1_%d.pdf", alunoNome.split(" ")[0], new Date().getTime());
+                Part part = request.getPart("arquivo");
+                part.write(turmaPath + "\\" + finalFileName);
 
-            Part part = request.getPart("arquivo");
-            part.write(turmaPath + "\\" + finalFileName);
+                DBConn.makeQuery(String.format("UPDATE Submissao SET ArquivoRessub='%s', status='wait' WHERE fk_turma_anosemestre='%s' AND fk_aluno_email='%s'",finalFileName, turmaAno, aluno));
+            }
+            else {
+                String finalFileName = String.format("%s_Sub1_%d.pdf", alunoNome.split(" ")[0], new Date().getTime());
 
-            DBConn.makeQuery(String.format("INSERT INTO Submissao VALUES ('%s','%s','wait','%s',NOW(),'%s','null','%s','%s','%s')",
-                    titulo, coorientador, resumo, finalFileName, orientador, turmaAno, aluno));
+                Part part = request.getPart("arquivo");
+                part.write(turmaPath + "\\" + finalFileName);
+
+                DBConn.makeQuery(String.format("INSERT INTO Submissao VALUES ('%s','%s','wait','%s',NOW(),'%s','null','%s','%s','%s')",
+                        titulo, coorientador, resumo, finalFileName, orientador, turmaAno, aluno));
+            }
         }
         
         response.sendRedirect(String.format("aluno/alunoSub.jsp?turmaAno=%s", turmaAno));

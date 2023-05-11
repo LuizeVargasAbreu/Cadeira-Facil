@@ -12,6 +12,8 @@
 
 <%@include file="cabecalhoOrg.jsp"%>
 <%@include file="../DBConn.jsp"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 
 <form id="myform" action="../DistribSubmissoesRandom" method="get" enctype="multipart/form-data" hidden>
     <input type="text" name="turmaAno" value=<% out.print(turmaAno); %> hidden>
@@ -31,10 +33,32 @@
     <a class="a">
         <button class="btnCabecalho"  style="padding: 25px 20px; background-color:#808080" disabled>Distr. Manual</button>
     </a>
-    <a class="a" onclick="document.getElementById('myform').submit();">
-        <button class="btnCabecalho"  style="padding: 25px 20px">Distr. Automática</button>
-    </a>
-    <a href="../escolherSessao.jsp" class="a">
+    <%
+        ResultSet rsPrz = makeQuery(String.format("SELECT prazorev,prazosub FROM Turma WHERE AnoSemestre='%s'", turmaAno));
+
+        if (rsPrz != null && rsPrz.next()) {
+            java.sql.Date[] rev = (java.sql.Date[])rsPrz.getArray("prazorev").getArray();
+            java.sql.Date[] sub = (java.sql.Date[])rsPrz.getArray("prazosub").getArray();
+
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            Date now = new Date();
+
+            Date p11 = df.parse(rev[0].toString());
+            Date p12 = df.parse(rev[1].toString());
+            Date p21 = df.parse(sub[0].toString());
+            Date p22 = df.parse(sub[1].toString());
+            
+            if ((p11.compareTo(now) < 0 && p12.compareTo(now) > 0) || (p21.compareTo(now) < 0 && p22.compareTo(now) > 0)) {
+                out.print("<a class=\"a\" onclick=\"document.getElementById('myform').submit();\">");
+                out.print("<button class=\"btnCabecalho\" style=\"padding: 25px 20px; background-color:#808080\" disabled  title=\"Somente após o prazo terminar.\">Distr. Automática</button></a>");
+            }
+            else {
+                out.print("<a class=\"a\" onclick=\"document.getElementById('myform').submit();\">");
+                out.print("<button class=\"btnCabecalho\"  style=\"padding: 25px 20px\">Distr. Automática</button></a>");
+            }
+        }
+    %>
+    <a href="orgTurmas.jsp" class="a">
         <button class="btnCabecalho" style="padding: 25px 50px">Voltar</button>
     </a>
 </div>

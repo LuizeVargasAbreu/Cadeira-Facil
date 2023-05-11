@@ -37,26 +37,36 @@
                 <div class="mdl-card__supporting-text">
                     <h3>Realizar ressubmissão</h3>
                     <div class="divCadastro">
-                        <form action="#" method="post" enctype="multipart/form-data">
+                        <form action="../FileUploadSubmissao" method="post" enctype="multipart/form-data">
                             <div class="mdl-cell--12-col">
-                                <label for="titulo">Título:</label><br>
-                                <input type="text" required name="titulo">
+                                <%
+                                    ResultSet rs = makeQuery(String.format("SELECT * FROM Submissao WHERE fk_Aluno_Email='%s' AND fk_Turma_AnoSemestre='%s'", sessionLogin, request.getParameter("turmaAno")));
 
-                                <label for="orientador">Orientador:</label>
-                                <input type="text" name="orientador" value="<% out.print(request.getParameter("fk_Orientador_Email")); %>" readonly>
+                                    if (rs != null && rs.next()) {
+                                    
+                                        out.println(String.format("<label for=\"titulo\">Título:</label><br>"));
+                                        out.println(String.format("<input type=\"text\" name=\"titulo\" value=\"%s\">", rs.getString("Titulo")));
 
-                                <label for="coorientador">Coorientador:</label>
-                                <input type="text" name="coorientador">
+                                        out.println(String.format("<label for=\"orientador\">Orientador:</label>"));
+                                        out.println(String.format("<input type=\"text\" name=\"orientador\" value=\"%s\" readonly>", rs.getString("fk_Orientador_Email")));
 
-                                <label for="resumo">Resumo:</label>
-                                <input type="text" required name="resumo">
+                                        out.println(String.format("<label for=\"coorientador\">Coorientador:</label><br>"));
+                                        out.println(String.format("<input type=\"text\" name=\"coorientador\" value=\"%s\">", rs.getString("Coorientador")));
 
-                                <label for="arquivo">Arquivo:</label>
-                                <br>
+                                        out.println(String.format("<label for=\"resumo\">Resumo:</label><br>"));
+                                        out.println(String.format("<input type=\"text\" name=\"resumo\" value=\"%s\">", rs.getString("Resumo")));
+
+                                        out.println(String.format("<label for=\"arquivo\">Arquivo:</label><br>"));
+                                        out.println(String.format("<input type=\"text\" name=\"fileName\" value=\"%s\">", rs.getString("Arquivo")));
+                                    }
+                                %>
+                                
                                 <input type="file" required name="arquivo" style="width: auto" accept=".pdf">
                                 <input type="text" required name="aluno" value=<% out.print(sessionLogin); %> hidden>
                                 <input type="text" required name="alunoNome" value=<% out.print(sessionNome); %> hidden>
                                 <input type="text" required name="turmaAno" value=<% out.print(request.getParameter("turmaAno")); %> hidden>
+                                <input type="text" required name="alterar" value="0" hidden>
+                                <input type="text" required name="resub" value="1" hidden>
 
                             </div>
                             <div class="btn-groupA" style="float: right; margin-right: 1%">

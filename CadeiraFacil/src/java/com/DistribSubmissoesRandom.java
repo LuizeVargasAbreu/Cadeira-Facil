@@ -20,13 +20,13 @@ import java.util.logging.Logger;
 public class DistribSubmissoesRandom extends HttpServlet {
     
     private int distribSubmissoes(List<Map.Entry<String, Integer>> v, Random gen, int revMaxCount) {
-        int _rand = gen.nextInt();
-        if (_rand < 0)
-            _rand = -_rand;
+        int rand = gen.nextInt();
+        if (rand < 0)
+            rand = -rand;
         
-        int rand = (_rand % v.size());
+        rand %= v.size();
 
-        for (int i = rand, c = 0; c < v.size(); ++c) {
+        for (int i = rand, c = 0; c < v.size(); ++c, ++i) {
             if (i == v.size())
                 i = 0;
 
