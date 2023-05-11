@@ -19,15 +19,23 @@ import java.util.logging.Logger;
 @WebServlet("/DistribSubmissoesRandom")
 public class DistribSubmissoesRandom extends HttpServlet {
     
+    int s_LastRand = -1;
+    
     private int distribSubmissoes(List<Map.Entry<String, Integer>> v, Random gen, int revMaxCount) {
+        
         int rand = gen.nextInt();
         if (rand < 0)
             rand = -rand;
         
         rand %= v.size();
-
+        
+        if (rand == s_LastRand)
+            rand++;
+        
+        s_LastRand = rand;
+        
         for (int i = rand, c = 0; c < v.size(); ++c, ++i) {
-            if (i == v.size())
+            if (i >= v.size())
                 i = 0;
 
             int value = v.get(i).getValue();
@@ -69,18 +77,20 @@ public class DistribSubmissoesRandom extends HttpServlet {
                     
                     try {
                         while (rs.next()) {
-                            int id = distribSubmissoes(v, gen, revMaxCount);
-                            if (id == -1) {
-                                revMaxCount++;
-                                
-                                id = distribSubmissoes(v, gen, revMaxCount);
+                            for (int i = 0; i < 2; ++i) {
+                                int id = distribSubmissoes(v, gen, revMaxCount);
                                 if (id == -1) {
-                                    Logger.getLogger(DistribSubmissoesRandom.class.getName()).log(Level.SEVERE, null, "Error in DistribSubmissoes");
-                                    break;
+                                    revMaxCount++;
+
+                                    id = distribSubmissoes(v, gen, revMaxCount);
+                                    if (id == -1) {
+                                        Logger.getLogger(DistribSubmissoesRandom.class.getName()).log(Level.SEVERE, null, "Error in DistribSubmissoes");
+                                        break;
+                                    }
                                 }
+
+                                DBConn.makeQuery(String.format("INSERT INTO revisor_submissao VALUES ('%s','%s','%s')", v.get(id).getKey(), turmaAno, rs.getString("fk_aluno_email")));
                             }
-                            
-                            DBConn.makeQuery(String.format("INSERT INTO revisor_submissao VALUES ('%s','%s','%s')", v.get(id).getKey(), turmaAno, rs.getString("fk_aluno_email")));
                         }
                     } catch (SQLException ex) {
                         Logger.getLogger(DistribSubmissoesRandom.class.getName()).log(Level.SEVERE, null, ex);

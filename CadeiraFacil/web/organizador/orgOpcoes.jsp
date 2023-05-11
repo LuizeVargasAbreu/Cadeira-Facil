@@ -90,17 +90,21 @@
                                         out.println(String.format("<td>%s</td>", rs2.getString("Nome")));
                                         
                                         ResultSet rs3 = makeQuery(String.format("SELECT fk_revisor_email FROM Revisor_Submissao WHERE fk_aluno_email='%s'", rs.getString("fk_aluno_email")));
-                                    
-                                        if (rs3 != null && rs3.next()) {
+                                        int count = 0;
+                                        
+                                        while (rs3 != null && rs3.next()) {
+                                            count++;
+                                            
                                             ResultSet rs4 = makeQuery(String.format("SELECT Nome FROM Usuario WHERE Email='%s'", rs3.getString("fk_revisor_email")));
                                             String revisores = "";
                                             
-                                            while (rs4 != null && rs4.next())
+                                            if (rs4 != null && rs4.next())
                                                 revisores += String.format("%s ", rs4.getString("Nome").split(" ")[0]);
                                             
                                             out.println(String.format("<td>%s</td>", revisores));
                                         }
-                                        else
+                                        
+                                        if (count == 0)
                                             out.println(String.format("<td>Revisores não definidos</td>"));
                                         
                                         out.println(String.format("</tr>"));
