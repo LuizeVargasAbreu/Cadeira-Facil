@@ -10,6 +10,7 @@
     }
 
     String sessionNome = (String) session.getAttribute("usuarioNome");
+    String turmaAno = request.getParameter("turmaAno");
 %>
 
 <%@include file="cabecalhoAluno.jsp"%>
@@ -26,7 +27,7 @@
             </button>
         </a>
     </div>
-    <a href="alunoOpcoes.jsp" class="a">
+    <a href="alunoRevisoes.jsp?turmaAno=<% out.print(turmaAno); %>" class="a">
         <button class="btnCabecalho" style="padding: 25px 50px">Voltar</button>
     </a>
 </div>
@@ -38,51 +39,43 @@
             <div class="mdl-card mdl-cell mdl-cell--12-col">
                 <div class="mdl-card__supporting-text" style="margin: -30px 40px 40px 20px">
                     <h3>Revisão</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Professor revisor</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="trHover">
-                                <td style="padding: 10px 15px; color: #f5f5f5">Professor revisor</td>
-                            </tr>
-                        </tbody>
+                        <%
+                            ResultSet rs = makeQuery(String.format("SELECT * FROM Revisao WHERE fk_Aluno_Email='%s' AND fk_turma_anosemestre='%s'", sessionLogin, turmaAno));
 
-                        <thead>
-                            <tr>
-                                <th>Critérios Objetivos</th>
-                            </tr>
-                        </thead>
-                        <tbody class="trHover">
-                            <tr>
-                                <td style="padding: 10px 15px; color: #f5f5f5">Expandir</td>
-                            </tr>
-                        </tbody>
+                            while (rs != null && rs.next()) {
 
-                        <thead>
-                            <tr>
-                                <th>Critérios Dissertativos</th>
-                            </tr>    
-                        </thead>
-                        <tbody>
-                            <tr class="trHover">
-                                <td style="padding: 10px 15px; color: #f5f5f5">Expandir</td>
-                            </tr>
-                        </tbody>
+                                ResultSet rs2 = makeQuery(String.format("SELECT Nome FROM Usuario WHERE Email='%s'", rs.getString("fk_revisor_email")));
 
-                        <thead>
-                            <tr>
-                                <th>Avaliação Geral</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="trHover">
-                                <td style="padding: 10px 15px; color: #f5f5f5">Avaliação</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                if (rs2 != null && rs2.next()) {
+
+                                    Integer[] notas = (Integer[])rs.getArray("CriteriosObjetivos").getArray();
+                                    String[] notasDiss = (String[])rs.getArray("CriteriosDissertivos").getArray();
+                                    String avaliacao = "Reprovado";
+                                    
+                                    int ii;
+                                    for (ii = 0; ii < 5; ++ii)
+                                        if (notas[ii] < 3)
+                                            break;
+                                            
+                                    if (ii == 5)
+                                        avaliacao = "Aprovado";
+                                        
+                                    out.print(String.format("<table><thead><tr><th>Professor revisor</th></tr></thead>"));
+                                    out.print(String.format("<tbody><tr class=\"trHover\"><td style=\"padding: 10px 15px; color: #f5f5f5\">%s</td></tr></tbody>", rs2.getString("Nome")));
+
+                                    out.print(String.format("<thead><tr><th>Critérios Objetivos</th></tr></thead>"));
+                                    out.print(String.format("<tbody class=\"trHover\"><tr><td style=\"padding: 10px 15px; color: #f5f5f5\">%d %d %d %d %d</td></tr></tbody>", notas[0], notas[1], notas[2], notas[3], notas[4]));
+
+                                    out.print(String.format("<thead><tr><th>Critérios Dissertativos</th></tr></thead>"));
+                                    out.print(String.format("<tbody><tr class=\"trHover\"><td style=\"padding: 10px 15px; color: #f5f5f5\">%s; %s; %s; %s</td></tr></tbody>", notasDiss[0], notasDiss[1], notasDiss[2], notasDiss[3]));
+
+                                    out.print(String.format("<thead><tr><th>Avaliação Geral</th></tr></thead>"));
+                                    out.print(String.format("<tbody><tr class=\"trHover\"><td style=\"padding: 10px 15px; color: #f5f5f5\">%s</td></tr></tbody>", avaliacao));
+                                
+                                    out.print("</table><br><br>");
+                                }
+                            }
+                        %>
                 </div>
             </div>
         </section>

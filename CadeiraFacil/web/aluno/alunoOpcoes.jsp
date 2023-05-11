@@ -46,14 +46,14 @@
                         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
                         Date now = new Date();
                         
-                        Date p11 = df.parse(rev[0].toString());
-                        Date p12 = df.parse(rev[1].toString());
-                        Date p21 = df.parse(sub[0].toString());
-                        Date p22 = df.parse(sub[1].toString());
+                        Date p11 = df.parse(sub[0].toString());
+                        Date p12 = df.parse(sub[1].toString());
+                        Date p21 = df.parse(rev[0].toString());
+                        Date p22 = df.parse(rev[1].toString());
                         
                         out.print(String.format("<a href=\"alunoRealizar.jsp?turmaAno=%s\" class=\"a\">", turmaAno));
         
-                        if ((p11.compareTo(now) < 0 && p12.compareTo(now) > 0) || (p21.compareTo(now) < 0 && p22.compareTo(now) > 0))
+                        if ((p11.compareTo(now) < 0 && p12.compareTo(now) > 0))
                             out.print("<button class=\"btnOpcoes\" style=\"padding: 50px 50px\">Realizar submissão</button></a>");
                         else
                             out.print("<button class=\"btnOpcoes\" style=\"padding: 50px 50px; background-color:#808080\" disabled>Realizar submissão</button></a>");

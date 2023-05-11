@@ -6,6 +6,8 @@
     Boolean[] sessionPapeis = (Boolean[]) session.getAttribute("usuarioPapeis");
     if (!sessionPapeis[3])
         throw new ServletException("Aluno Only");
+        
+    String turmaAno = request.getParameter("turmaAno");
 %>
 
 <%@include file="cabecalhoAluno.jsp"%>
@@ -44,17 +46,24 @@
                         </thead>
                         <tbody>
                             <%
-                                ResultSet rs = makeQuery(String.format("SELECT * FROM Aluno_Turma WHERE fk_Aluno_Email='%s'", sessionLogin));
+                                ResultSet rs = makeQuery(String.format("SELECT * FROM Revisao WHERE fk_Aluno_Email='%s' AND fk_turma_anosemestre='%s'", sessionLogin, turmaAno));
                                 
                                 while (rs != null && rs.next()) {
                                                
-                                    out.println(String.format("<tr class=\"trHover\"><td>AQUI VAI O NOME DO REVISOR</td>"));
-                                    out.println(String.format("<td>AQUI VAI A AVALIAÇÃO DO REVISOR</td>"));
-                                    out.println(String.format("<td style=\"background-color: white\"> <div class=\"btn-groupA\">"));                                   
-                                   
-                                    out.println(String.format("<a href=\"alunoRevisao.jsp?turmaAno=%s\" class=\"a\"><button class=\"btnAcoes\"  style=\"padding: 10px 15px\">Abrir</button></a>", rs.getString("fk_Turma_AnoSemestre")));
-                                                   
-                                    out.println(String.format("</div> </td> </tr>"));
+                                    ResultSet rs2 = makeQuery(String.format("SELECT Nome FROM Usuario WHERE Email='%s'", rs.getString("fk_revisor_email")));
+                                
+                                    if (rs2 != null && rs2.next()) {
+                                    
+                                        Integer[] notas = (Integer[])rs.getArray("CriteriosObjetivos").getArray();
+                                        
+                                        out.println(String.format("<tr class=\"trHover\"><td>%s</td>", rs2.getString("Nome")));
+                                        out.println(String.format("<td>Notas: %d %d %d %d</td>", notas[0], notas[1], notas[2], notas[3]));
+                                        out.println(String.format("<td style=\"background-color: white\"> <div class=\"btn-groupA\">"));                                   
+
+                                        out.println(String.format("<a href=\"alunoRevisao.jsp?turmaAno=%s\" class=\"a\"><button class=\"btnAcoes\"  style=\"padding: 10px 15px\">Abrir</button></a>", rs.getString("fk_Turma_AnoSemestre")));
+
+                                        out.println(String.format("</div> </td> </tr>"));
+                                    }
                                 }
                             %>
                         </tbody>
