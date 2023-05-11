@@ -46,19 +46,19 @@
                                     <p style="font-size: 25px">Apresentação e consistência:</p>
                                     <legend>Observar se a proposta se mostra bem estruturada e coerente</legend>
                                     <fieldset>
-                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="pergunta1" style="margin-right: 15%">
+                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="p1_1" style="margin-right: 15%">
                                             <input type="radio" id="p1_1" class="mdl-radio__button" name="pergunta1" value="1" checked>
                                             <span class="mdl-radio__label">1. Insuficiente</span>
                                         </label>
-                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="pergunta1" style="margin-right: 15%">
+                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="p1_2" style="margin-right: 15%">
                                             <input type="radio" id="p1_2" class="mdl-radio__button" name="pergunta1" value="2">
                                             <span class="mdl-radio__label">2. Regular</span>
                                         </label>
-                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="pergunta1" style="margin-right: 15%">
+                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="p1_3" style="margin-right: 15%">
                                             <input type="radio" id="p1_3" class="mdl-radio__button" name="pergunta1" value="3">
                                             <span class="mdl-radio__label">3. Bom</span>
                                         </label>
-                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="pergunta1">
+                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="p1_4">
                                             <input type="radio" id="p1_4" class="mdl-radio__button" name="pergunta1" value="4">
                                             <span class="mdl-radio__label">4. Excelente</span>
                                         </label>
@@ -70,19 +70,19 @@
                                     <p style="font-size: 25px">Relevância e contribuição:</p>
                                     <legend>Observar se o tema é relevante e se o projeto tem contribuições para ensino, pesquisa e extensão</legend>
                                     <fieldset>
-                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="pergunta2" style="margin-right: 15%">
+                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="p2_1" style="margin-right: 15%">
                                             <input type="radio" id="p2_1" class="mdl-radio__button" name="pergunta2" value="1" checked>
                                             <span class="mdl-radio__label">1. Insuficiente</span>
                                         </label>
-                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="pergunta2" style="margin-right: 15%">
+                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="p2_2" style="margin-right: 15%">
                                             <input type="radio" id="p2_2" class="mdl-radio__button" name="pergunta2" value="2">
                                             <span class="mdl-radio__label">2. Regular</span>
                                         </label>
-                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="pergunta2" style="margin-right: 15%">
+                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="p2_3" style="margin-right: 15%">
                                             <input type="radio" id="p2_3" class="mdl-radio__button" name="pergunta2" value="3">
                                             <span class="mdl-radio__label">3. Bom</span>
                                         </label>
-                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="pergunta2">
+                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="p2_4">
                                             <input type="radio" id="p2_4" class="mdl-radio__button" name="pergunta2" value="4">
                                             <span class="mdl-radio__label">4. Excelente</span>
                                         </label>
@@ -94,19 +94,19 @@
                                     <p style="font-size: 25px">Metodologia:</p>
                                     <legend>Observar se a metodologia é adequada ao tipo de projeto, tornando o projeto exequível</legend>
                                     <fieldset>
-                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="pergunta3" style="margin-right: 15%">
+                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="p3_1" style="margin-right: 15%">
                                             <input type="radio" id="p3_1" class="mdl-radio__button" name="pergunta3" value="1" checked>
                                             <span class="mdl-radio__label">1. Insuficiente</span>
                                         </label>
-                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="pergunta3" style="margin-right: 15%">
+                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="p3_2" style="margin-right: 15%">
                                             <input type="radio" id="p3_2" class="mdl-radio__button" name="pergunta3" value="2">
                                             <span class="mdl-radio__label">2. Regular</span>
                                         </label>
-                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="pergunta3" style="margin-right: 15%">
+                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="p3_3" style="margin-right: 15%">
                                             <input type="radio" id="p3_3" class="mdl-radio__button" name="pergunta3" value="3">
                                             <span class="mdl-radio__label">3. Bom</span>
                                         </label>
-                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="pergunta3">
+                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="p3_4">
                                             <input type="radio" id="p3_4" class="mdl-radio__button" name="pergunta3" value="4">
                                             <span class="mdl-radio__label">4. Excelente</span>
                                         </label>
@@ -118,11 +118,11 @@
                                     <p style="font-size: 25px">Adequação ao curso:</p>
                                     <legend>Avaliar se o projeto é relevante a formação do aluno</legend>
                                     <fieldset>
-                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="pergunta4" style="margin-right: 15%">
+                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="p4_1" style="margin-right: 15%">
                                             <input type="radio" id="p4_1" class="mdl-radio__button" name="pergunta4" value="1" checked>
                                             <span class="mdl-radio__label">1. Sim</span>
                                         </label>
-                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="pergunta4">
+                                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="p4_2">
                                             <input type="radio" id="p4_2" class="mdl-radio__button" name="pergunta4" value="2">
                                             <span class="mdl-radio__label">2. Não</span>
                                         </label>
@@ -135,15 +135,15 @@
                                     <legend>Atividades e cronograma propostos</legend>
                                     <fieldset>
                                         <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="p5_1" style="margin-right: 10%">
-                                            <input type="radio" id="p5_1" class="mdl-radio__button" name="p5_1" value="1" checked>
+                                            <input type="radio" id="p5_1" class="mdl-radio__button" name="pergunta5" value="1" checked>
                                             <span class="mdl-radio__label">1. Mal especificado e/ou não exequível</span>
                                         </label>
                                         <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="p5_2" style="margin-right: 10%">
-                                            <input type="radio" id="p5_2" class="mdl-radio__button" name="p5_2" value="2">
+                                            <input type="radio" id="p5_2" class="mdl-radio__button" name="pergunta5" value="2">
                                             <span class="mdl-radio__label">2. Exequível</span>
                                         </label>
                                         <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="p5_3">
-                                            <input type="radio" id="p5_3" class="mdl-radio__button" name="p5_3" value="3">
+                                            <input type="radio" id="p5_3" class="mdl-radio__button" name="pergunta5" value="3">
                                             <span class="mdl-radio__label">3. Muito bem especificado e exequível</span>
                                         </label>
                                     </fieldset>

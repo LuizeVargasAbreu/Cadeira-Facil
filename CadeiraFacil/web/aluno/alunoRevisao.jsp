@@ -42,7 +42,7 @@
                         <%
                             ResultSet rs = makeQuery(String.format("SELECT * FROM Revisao WHERE fk_Aluno_Email='%s' AND fk_turma_anosemestre='%s'", sessionLogin, turmaAno));
 
-                            while (rs != null && rs.next()) {
+                            if (rs != null && rs.next()) {
 
                                 ResultSet rs2 = makeQuery(String.format("SELECT Nome FROM Usuario WHERE Email='%s'", rs.getString("fk_revisor_email")));
 
@@ -61,16 +61,16 @@
                                         avaliacao = "Aprovado";
                                         
                                     out.print(String.format("<table><thead><tr><th>Professor revisor</th></tr></thead>"));
-                                    out.print(String.format("<tbody><tr class=\"trHover\"><td style=\"padding: 10px 15px; color: #f5f5f5\">%s</td></tr></tbody>", rs2.getString("Nome")));
+                                    out.print(String.format("<tbody><tr class=\"trHover\"><td style=\"padding: 10px 15px\">%s</td></tr></tbody>", rs2.getString("Nome")));
 
                                     out.print(String.format("<thead><tr><th>Critérios Objetivos</th></tr></thead>"));
-                                    out.print(String.format("<tbody class=\"trHover\"><tr><td style=\"padding: 10px 15px; color: #f5f5f5\">%d %d %d %d %d</td></tr></tbody>", notas[0], notas[1], notas[2], notas[3], notas[4]));
+                                    out.print(String.format("<tbody class=\"trHover\"><tr><td style=\"padding: 10px 15px\">%d %d %d %d %d</td></tr></tbody>", notas[0], notas[1], notas[2], notas[3], notas[4]));
 
                                     out.print(String.format("<thead><tr><th>Critérios Dissertativos</th></tr></thead>"));
-                                    out.print(String.format("<tbody><tr class=\"trHover\"><td style=\"padding: 10px 15px; color: #f5f5f5\">%s; %s; %s; %s</td></tr></tbody>", notasDiss[0], notasDiss[1], notasDiss[2], notasDiss[3]));
+                                    out.print(String.format("<tbody><tr class=\"trHover\"><td style=\"padding: 10px 15px\">%s; %s; %s; %s</td></tr></tbody>", notasDiss[0], notasDiss[1], notasDiss[2], notasDiss[3]));
 
                                     out.print(String.format("<thead><tr><th>Avaliação Geral</th></tr></thead>"));
-                                    out.print(String.format("<tbody><tr class=\"trHover\"><td style=\"padding: 10px 15px; color: #f5f5f5\">%s</td></tr></tbody>", avaliacao));
+                                    out.print(String.format("<tbody><tr class=\"trHover\"><td style=\"padding: 10px 15px\">%s</td></tr></tbody>", avaliacao));
                                 
                                     out.print("</table><br><br>");
                                 }

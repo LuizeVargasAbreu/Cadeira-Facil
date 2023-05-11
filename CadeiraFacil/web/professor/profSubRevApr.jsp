@@ -42,29 +42,34 @@
                     </div>
                     <div class="mdl-cell--12-col">
                         <%
-                            ResultSet rs = makeQuery(String.format("SELECT * FROM Submissao WHERE fk_Orientador_Email='%s' AND fk_Turma_AnoSemestre='%s'", sessionLogin, request.getParameter("turmaAno")));
+                            ResultSet rs = makeQuery(String.format("SELECT fk_aluno_email FROM Revisor_Submissao WHERE fk_Revisor_Email='%s' AND fk_turma_anosemestre='%s'", sessionLogin, request.getParameter("turmaAno")));
+                                
+                                if (rs != null && rs.next()) {
+                                    
+                                    ResultSet rs2 = makeQuery(String.format("SELECT * FROM Submissao WHERE fk_Turma_AnoSemestre='%s' AND fk_Aluno_Email='%s'", request.getParameter("turmaAno"), rs.getString("fk_aluno_email")));
 
-                            if (rs != null && rs.next()) {
-                                out.println(String.format("<label for=\"titulo\">Título:</label><br>"));
-                                out.println(String.format("<input type=\"text\" name=\"titulo\" value=\"%s\" readonly>", rs.getString("Titulo")));
+                                    if (rs2 != null && rs2.next()) {
+                                        out.println(String.format("<label for=\"titulo\">Título:</label><br>"));
+                                        out.println(String.format("<input type=\"text\" name=\"titulo\" value=\"%s\" readonly>", rs2.getString("Titulo")));
 
-                                out.println(String.format("<label for=\"orientador\">Orientador:</label>"));
-                                out.println(String.format("<input type=\"text\" name=\"orientador\" value=\"%s\" readonly>", rs.getString("fk_Orientador_Email")));
+                                        out.println(String.format("<label for=\"orientador\">Orientador:</label>"));
+                                        out.println(String.format("<input type=\"text\" name=\"orientador\" value=\"%s\" readonly>", rs2.getString("fk_Orientador_Email")));
 
-                                out.println(String.format("<label for=\"coorientador\">Coorientador:</label><br>"));
-                                out.println(String.format("<input type=\"text\" name=\"coorientador\" value=\"%s\" readonly>", rs.getString("Coorientador")));
+                                        out.println(String.format("<label for=\"coorientador\">Coorientador:</label><br>"));
+                                        out.println(String.format("<input type=\"text\" name=\"coorientador\" value=\"%s\" readonly>", rs2.getString("Coorientador")));
 
-                                out.println(String.format("<label for=\"resumo\">Resumo:</label><br>"));
-                                out.println(String.format("<input type=\"text\" name=\"resumo\" value=\"%s\" readonly>", rs.getString("Resumo")));
+                                        out.println(String.format("<label for=\"resumo\">Resumo:</label><br>"));
+                                        out.println(String.format("<input type=\"text\" name=\"resumo\" value=\"%s\" readonly>", rs2.getString("Resumo")));
 
-                                out.println(String.format("<label for=\"arquivo\">Arquivo:</label><br>"));
-                                out.println(String.format("<input type=\"text\" name=\"fileName\" value=\"%s\" readonly>", rs.getString("Arquivo")));
+                                        out.println(String.format("<label for=\"arquivo\">Arquivo:</label><br>"));
+                                        out.println(String.format("<input type=\"text\" name=\"fileName\" value=\"%s\" readonly>", rs2.getString("Arquivo")));
 
-                                out.println(String.format("<form action=\"../FileUploadSubmissao\" method=\"get\" enctype=\"multipart/form-data\">"));
-                                out.println(String.format("<input type=\"text\" name=\"turmaAno\" value=\"%s\" hidden>", request.getParameter("turmaAno")));
-                                out.println(String.format("<input type=\"text\" name=\"fileName\" value=\"%s\" hidden>", rs.getString("Arquivo")));
-                                //out.println(String.format("<button type=\"submit\" class=\"btnAcoes\"  style=\"padding: 25px 25px\">Baixar</button></form>"));
-                            }
+                                        out.println(String.format("<form action=\"../FileUploadSubmissao\" method=\"get\" enctype=\"multipart/form-data\">"));
+                                        out.println(String.format("<input type=\"text\" name=\"turmaAno\" value=\"%s\" hidden>", request.getParameter("turmaAno")));
+                                        out.println(String.format("<input type=\"text\" name=\"fileName\" value=\"%s\" hidden>", rs2.getString("Arquivo")));
+                                        //out.println(String.format("<button type=\"submit\" class=\"btnAcoes\"  style=\"padding: 25px 25px\">Baixar</button></form>"));
+                                    }
+                                }
                         %>
                     </div>
                     <div class="btn-groupA" style="float: right; margin-right: 1%">

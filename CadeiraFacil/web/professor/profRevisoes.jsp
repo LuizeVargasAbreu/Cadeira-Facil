@@ -47,7 +47,7 @@
                             <%
                                 ResultSet rs = makeQuery(String.format("SELECT fk_aluno_email FROM revisor_submissao WHERE fk_Revisor_Email='%s' AND fk_turma_anosemestre='%s'", sessionLogin, request.getParameter("turmaAno")));
                                 
-                                if (rs != null && rs.next()) {
+                                while (rs != null && rs.next()) {
                                     
                                     ResultSet rs2 = makeQuery(String.format("SELECT Titulo, Status FROM Submissao WHERE fk_turma_anosemestre='%s' AND fk_aluno_email='%s'", request.getParameter("turmaAno"), rs.getString("fk_aluno_email")));
 
