@@ -119,55 +119,55 @@ INSERT INTO Aluno_Turma
 -- Cria as submissões:
 
 INSERT INTO Submissao
-	VALUES ('Testando a Submissao do Projeto de DS', '', 'wait', 
+	VALUES ('Testando a Submissao do Projeto de DS - Aluno E', '', 'wait', 
 			'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 
-			'10/05/2023', 'Submissao.pdf', '', 'toto@inf.ufpel.edu.br', '202301', 'alunoe@inf.ufpel.edu.br');
+			'10/05/2023', 'Submissao_AlunoE.pdf', '', 'toto@inf.ufpel.edu.br', '202301', 'alunoe@inf.ufpel.edu.br');
 INSERT INTO Submissao
-	VALUES ('Testando a Submissao do Projeto de DS', '', 'wait', 
+	VALUES ('Testando a Submissao do Projeto de DS - Aluno F', '', 'wait', 
 			'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 
-			'10/05/2023', 'Submissao.pdf', '', 'toto@inf.ufpel.edu.br', '202301', 'alunof@inf.ufpel.edu.br');
+			'10/05/2023', 'Submissao_AlunoF.pdf', '', 'toto@inf.ufpel.edu.br', '202301', 'alunof@inf.ufpel.edu.br');
 INSERT INTO Submissao
-	VALUES ('Testando a Submissao do Projeto de DS', '', 'wait', 
+	VALUES ('Testando a Submissao do Projeto de DS - Aluno G', '', 'wait', 
 			'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 
-			'10/05/2023', 'Submissao.pdf', '', 'toto@inf.ufpel.edu.br', '202301', 'alunog@inf.ufpel.edu.br');
+			'10/05/2023', 'Submissao_AlunoG.pdf', '', 'toto@inf.ufpel.edu.br', '202301', 'alunog@inf.ufpel.edu.br');
 INSERT INTO Submissao
-	VALUES ('Testando a Submissao do Projeto de DS', '', 'wait', 
+	VALUES ('Testando a Submissao do Projeto de DS - Aluno H', '', 'wait', 
 			'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 
-			'10/05/2023', 'Submissao.pdf', '', 'toto@inf.ufpel.edu.br', '202301', 'alunoh@inf.ufpel.edu.br');
+			'10/05/2023', 'Submissao_AlunoH.pdf', '', 'toto@inf.ufpel.edu.br', '202301', 'alunoh@inf.ufpel.edu.br');
 
 INSERT INTO Submissao
-	VALUES ('Testando a Submissao do Projeto de DS', '', 'repr', 
+	VALUES ('Testando a Submissao do Projeto de DS - Aluno I', '', 'repr', 
 			'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 
-			'10/05/2023', 'Submissao.pdf', '', 'toto@inf.ufpel.edu.br', '202302', 'alunoi@inf.ufpel.edu.br');
+			'10/05/2023', 'Submissao_AlunoI.pdf', '', 'toto@inf.ufpel.edu.br', '202302', 'alunoi@inf.ufpel.edu.br');
 INSERT INTO Submissao
-	VALUES ('Testando a Submissao do Projeto de DS', '', 'repr', 
+	VALUES ('Testando a Submissao do Projeto de DS - Aluno J', '', 'repr', 
 			'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 
-			'10/05/2023', 'Submissao.pdf', '', 'toto@inf.ufpel.edu.br', '202302', 'alunoj@inf.ufpel.edu.br');
+			'10/05/2023', 'Submissao_AlunoJ.pdf', '', 'toto@inf.ufpel.edu.br', '202302', 'alunoj@inf.ufpel.edu.br');
 INSERT INTO Submissao
-	VALUES ('Testando a Submissao do Projeto de DS', '', 'repr', 
+	VALUES ('Testando a Submissao do Projeto de DS - Aluno L', '', 'repr', 
 			'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 
-			'10/05/2023', 'Submissao.pdf', '', 'toto@inf.ufpel.edu.br', '202302', 'alunol@inf.ufpel.edu.br');
+			'10/05/2023', 'Submissao_AlunoL.pdf', '', 'toto@inf.ufpel.edu.br', '202302', 'alunol@inf.ufpel.edu.br');
 INSERT INTO Submissao
-	VALUES ('Testando a Submissao do Projeto de DS', '', 'repr', 
+	VALUES ('Testando a Submissao do Projeto de DS - Aluno M', '', 'repr', 
 			'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 
-			'10/05/2023', 'Submissao.pdf', '', 'toto@inf.ufpel.edu.br', '202302', 'alunom@inf.ufpel.edu.br');
+			'10/05/2023', 'Submissao_AlunoM.pdf', '', 'toto@inf.ufpel.edu.br', '202302', 'alunom@inf.ufpel.edu.br');
 			
 INSERT INTO Submissao
-	VALUES ('Testando a Submissao do Projeto de DS', '', 'wait', 
+	VALUES ('Testando a Submissao do Projeto de DS - Aluno N', '', 'wait', 
 			'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 
-			'10/05/2023', 'Submissao.pdf', 'Submissao2.pdf', 'toto@inf.ufpel.edu.br', '202401', 'alunon@inf.ufpel.edu.br');
+			'10/05/2023', 'Submissao_AlunoN.pdf', 'Submissao2_AlunoN.pdf', 'toto@inf.ufpel.edu.br', '202401', 'alunon@inf.ufpel.edu.br');
 INSERT INTO Submissao
-	VALUES ('Testando a Submissao do Projeto de DS', '', 'wait', 
+	VALUES ('Testando a Submissao do Projeto de DS - Aluno O', '', 'wait', 
 			'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 
-			'10/05/2023', 'Submissao.pdf', 'Submissao2.pdf', 'toto@inf.ufpel.edu.br', '202401', 'alunoo@inf.ufpel.edu.br');
+			'10/05/2023', 'Submissao_AlunoO.pdf', 'Submissao2_AlunoO.pdf', 'toto@inf.ufpel.edu.br', '202401', 'alunoo@inf.ufpel.edu.br');
 INSERT INTO Submissao
-	VALUES ('Testando a Submissao do Projeto de DS', '', 'wait', 
+	VALUES ('Testando a Submissao do Projeto de DS - Aluno P', '', 'wait', 
 			'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 
-			'10/05/2023', 'Submissao.pdf', 'Submissao2.pdf', 'toto@inf.ufpel.edu.br', '202401', 'alunop@inf.ufpel.edu.br');
+			'10/05/2023', 'Submissao_AlunoP.pdf', 'Submissao2_AlunoP.pdf', 'toto@inf.ufpel.edu.br', '202401', 'alunop@inf.ufpel.edu.br');
 INSERT INTO Submissao
-	VALUES ('Testando a Submissao do Projeto de DS', '', 'wait', 
+	VALUES ('Testando a Submissao do Projeto de DS - Aluno Q', '', 'wait', 
 			'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 
-			'10/05/2023', 'Submissao.pdf', 'Submissao2.pdf', 'toto@inf.ufpel.edu.br', '202401', 'alunoq@inf.ufpel.edu.br');
+			'10/05/2023', 'Submissao_AlunoQ.pdf', 'Submissao2_AlunoQ.pdf', 'toto@inf.ufpel.edu.br', '202401', 'alunoq@inf.ufpel.edu.br');
 
 -- Distribui para a Revisão:
 
