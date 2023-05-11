@@ -8,10 +8,13 @@
         throw new ServletException("Aluno Only");
         
     String sessionNome = (String) session.getAttribute("usuarioNome");
+    String turmaAno = request.getParameter("turmaAno");
 %>
 
 <%@include file="cabecalhoAluno.jsp"%>
 <%@include file="../DBConn.jsp"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 
 <div class="btn-groupA" style="margin: 6% 0 5% 50%">
     <div class="btn-groupA" style="margin-top: 10%; margin-left: 95%">
@@ -24,9 +27,31 @@
             </button>
         </a>
     </div>
-    <a href="alunoRessub.jsp?turmaAno=<% out.print(request.getParameter("turmaAno")); %>" class="a">
-        <button class="btnCabecalho" style="padding: 25px 22px">Ressubmeter</button>
-    </a>
+    <%
+        ResultSet rs2 = makeQuery(String.format("SELECT prazorev,prazosub FROM Turma WHERE AnoSemestre='%s'", turmaAno));
+
+        if (rs2 != null && rs2.next()) {
+            java.sql.Date[] rev = (java.sql.Date[])rs2.getArray("prazorev").getArray();
+            java.sql.Date[] sub = (java.sql.Date[])rs2.getArray("prazosub").getArray();
+
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            Date now = new Date();
+
+            Date p11 = df.parse(sub[0].toString());
+            Date p12 = df.parse(sub[1].toString());
+            Date p21 = df.parse(rev[0].toString());
+            Date p22 = df.parse(rev[1].toString());
+            
+            if ((p21.compareTo(now) < 0 && p22.compareTo(now) > 0)) {
+                out.print(String.format("<a href=\"alunoRessub.jsp?turmaAno=%s\" class=\"a\">", turmaAno));
+                out.print("<button class=\"btnCabecalho\" style=\"padding: 25px 22px\">Ressubmeter</button></a>");
+            }
+            else {
+                out.print(String.format("<a href=\"alunoRessub.jsp?turmaAno=%s\" class=\"a\">", turmaAno));
+                out.print("<button class=\"btnCabecalho\" style=\"padding: 25px 22px; background-color:#808080\" disabled>Ressubmeter</button></a>");
+            }
+        }
+    %>
     <a href="alunoRevisoes.jsp?turmaAno=<% out.print(request.getParameter("turmaAno")); %>" class="a">
         <button class="btnCabecalho" style="padding: 16px 36px">Visualizar <br> revisões</button>
     </a>

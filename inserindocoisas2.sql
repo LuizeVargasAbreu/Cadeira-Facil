@@ -197,9 +197,9 @@ INSERT INTO Revisor_Submissao VALUES('neto@inf.ufpel.edu.br', '202401', 'alunoq@
 INSERT INTO Revisor_Submissao VALUES('alan@inf.ufpel.edu.br', '202401', 'alunoq@inf.ufpel.edu.br');
 INSERT INTO Revisor_Submissao VALUES('larissa@inf.ufpel.edu.br', '202401', 'alunoq@inf.ufpel.edu.br');
 
-INSERT INTO Revisao VALUES('{3,3,3,1,2}', '{achei bom, achei bom, achei bom, achei bom}', '10/10/2022', false, 'larissa@inf.ufpel.edu.br', '202302', 'alunoi@inf.ufpel.edu.br');
-INSERT INTO Revisao VALUES('{3,3,3,1,2}', '{achei bom, achei bom, achei bom, achei bom}', '10/10/2022', false, 'toto@inf.ufpel.edu.br', '202302', 'alunoi@inf.ufpel.edu.br');
-INSERT INTO Revisao VALUES('{3,3,3,1,2}', '{achei bom, achei bom, achei bom, achei bom}', '10/10/2022', false, 'neto@inf.ufpel.edu.br', '202302', 'alunoi@inf.ufpel.edu.br');
+INSERT INTO Revisao VALUES('{3,3,3,3,3}', '{achei bom, achei bom, achei bom, achei bom}', '10/10/2022', false, 'larissa@inf.ufpel.edu.br', '202302', 'alunoi@inf.ufpel.edu.br');
+INSERT INTO Revisao VALUES('{3,3,3,3,3}', '{achei bom, achei bom, achei bom, achei bom}', '10/10/2022', false, 'toto@inf.ufpel.edu.br', '202302', 'alunoi@inf.ufpel.edu.br');
+INSERT INTO Revisao VALUES('{3,3,3,3,3}', '{achei bom, achei bom, achei bom, achei bom}', '10/10/2022', false, 'neto@inf.ufpel.edu.br', '202302', 'alunoi@inf.ufpel.edu.br');
 INSERT INTO Revisao VALUES('{3,3,3,1,2}', '{achei bom, achei bom, achei bom, achei bom}', '10/10/2022', false, 'alan@inf.ufpel.edu.br', '202302', 'alunoj@inf.ufpel.edu.br');
 INSERT INTO Revisao VALUES('{3,3,3,1,2}', '{achei bom, achei bom, achei bom, achei bom}', '10/10/2022', false, 'tatiana@inf.ufpel.edu.br', '202302', 'alunoj@inf.ufpel.edu.br');
 INSERT INTO Revisao VALUES('{3,3,3,1,2}', '{achei bom, achei bom, achei bom, achei bom}', '10/10/2022', false, 'ulisses@inf.ufpel.edu.br', '202302', 'alunol@inf.ufpel.edu.br');
